@@ -1,8 +1,5 @@
-﻿using System.IO;
-using System.Linq;
-using System.Web.Optimization;
-using dotless.Core.configuration;
-using System.Web;
+﻿using System.Web.Optimization;
+using AntwerpRC.UI.Umbraco.Helpers;
 
 // ReSharper disable once CheckNamespace
 namespace AntwerpRC.UI.Umbraco
@@ -52,27 +49,6 @@ namespace AntwerpRC.UI.Umbraco
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
-        }
-    }
-
-    public class LessTransform : IBundleTransform
-    {
-        public void Process(BundleContext context, BundleResponse response)
-        {
-            if (response.Files.Any())
-            {
-                string currentDir = Directory.GetCurrentDirectory();
-                var lessDir =
-                    Path.GetDirectoryName(string.Concat(HttpContext.Current.Server.MapPath("~"),
-                        response.Files.First().VirtualFile.VirtualPath));
-                if (!string.IsNullOrEmpty(lessDir))
-                {
-                    Directory.SetCurrentDirectory(lessDir);
-                    response.Content = dotless.Core.Less.Parse(response.Content);
-                    Directory.SetCurrentDirectory(currentDir);
-                    response.ContentType = "text/css";
-                }
-            }
         }
     }
 }
