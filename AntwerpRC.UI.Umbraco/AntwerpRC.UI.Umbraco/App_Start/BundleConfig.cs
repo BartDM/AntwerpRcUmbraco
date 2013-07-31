@@ -59,22 +59,20 @@ namespace AntwerpRC.UI.Umbraco
     {
         public void Process(BundleContext context, BundleResponse response)
         {
-            string currentDir = Directory.GetCurrentDirectory();
-            string basePath = HttpContext.Current.Server.MapPath("~");
-            var file = new FileInfo(string.Format("{0}{1}", basePath, response.Files.First().VirtualFile.VirtualPath));
-            var lessDir = string.Empty;
-
-            if (file.Exists)
-                lessDir = file.DirectoryName;
-            if (!string.IsNullOrEmpty(lessDir))
+            if (response.Files.Any())
             {
-                Directory.SetCurrentDirectory(lessDir);
-                response.Content = dotless.Core.Less.Parse(response.Content);
-                Directory.SetCurrentDirectory(currentDir);
-                response.ContentType = "text/css";
-         
+                string currentDir = Directory.GetCurrentDirectory();
+                var lessDir =
+                    Path.GetDirectoryName(string.Concat(HttpContext.Current.Server.MapPath("~"),
+                        response.Files.First().VirtualFile.VirtualPath));
+                if (!string.IsNullOrEmpty(lessDir))
+                {
+                    Directory.SetCurrentDirectory(lessDir);
+                    response.Content = dotless.Core.Less.Parse(response.Content);
+                    Directory.SetCurrentDirectory(currentDir);
+                    response.ContentType = "text/css";
+                }
             }
-
         }
     }
 }
