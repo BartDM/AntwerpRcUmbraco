@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="/umbraco_client/ui/default.css?cdv=1" type="text/css" rel="stylesheet" />
+    <link href="/umbraco_client/modal/style.css?cdv=1" type="text/css" rel="stylesheet" />
+    <link href="/umbraco_client/scrollingmenu/style.css?cdv=1" type="text/css" rel="stylesheet" />
+    <link href="/umbraco_client/panel/style.css?cdv=1" type="text/css" rel="stylesheet" />
+    <link href="/umbraco_client/tabview/style.css?cdv=1" type="text/css" rel="stylesheet" />
+    <script src="/umbraco_client/Application/NamespaceManager.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/ui/jquery.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/ui/jqueryui.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/Application/jQuery/jquery.cookie.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/ui/base2.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/Application/UmbracoApplicationActions.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/Application/UmbracoUtils.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/Application/UmbracoClientManager.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/modal/modal.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/ui/default.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/Application/jQuery/jquery.hotkeys.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/scrollingmenu/javascript.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/panel/javascript.js?cdv=1" type="text/javascript"></script>
+    <script src="/umbraco_client/tabview/javascript.js?cdv=1" type="text/javascript"></script>
+    <style>
+        .menubar
+        {
+            text-align: left;
+            height: 25px;
+            border-left:#CAC9C9 1px solid;
+            border-right:#CAC9C9 1px solid;
+        }
+
+        .editorIcon, .editorIconOver, .editorIconDown
+        {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="umbracoPage">
+    @using (Html.BeginForm()) 
+    {
+        <div id="body_Panel2" class="panel" style="height: 659px; width: 995px;">
+            <div class="boxhead">
+                <h2 id="body_Panel2Label">@RenderSection("HeaderTitle",false)</h2>
+                <div class="menubar">
+                    <input type="image" name="ctl00$body$TabView1_tab01layer_save" id="body_TabView1_tab01layer_save"
+                        title="Save" class="editorIcon" onmouseover="this.className='editorIconOver'"
+                        onmouseout="this.className='editorIcon'" onmouseup="this.className='editorIconOver'"
+                        onmousedown="this.className='editorIconDown'" src="/umbraco/images/editor/save.gif" onclick="$('form').submit();"
+                        alt="Save"
+                        style="height: 23px; width: 22px; border: 0px;">
+                </div>
+
+            </div>
+            <div class="boxbody">
+                <div id="body_Panel2_content" class="content" style="width: auto; height: 613px;">
+                    <div class="innerContent" id="body_Panel2_innerContent" style=''>
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            <div class="boxfooter">
+                <div class="statusBar">
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

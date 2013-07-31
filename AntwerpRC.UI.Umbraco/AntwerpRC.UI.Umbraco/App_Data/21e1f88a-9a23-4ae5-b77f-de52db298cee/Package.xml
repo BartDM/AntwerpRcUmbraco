@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <info>
+    <package>
+      <name>Media Icons</name>
+      <version>1.0</version>
+      <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+      <url>http://our.umbraco.org/projects/backoffice-extensions/media-icons</url>
+      <requirements>
+        <major>4</major>
+        <minor>5</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Matt Brailsford</name>
+      <website>blog.mattbrailsford.com</website>
+    </author>
+    <readme><![CDATA[Installs the Media Icons package which modifies the default Media icons to extension specific ones.]]></readme>
+  </info>
+  
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+  <Actions />
+  <control />
+  
+  <files><file><guid>aad7229b-fb96-4371-9f2c-7ac159c6d396.dll</guid><orgPath>/bin</orgPath><orgName>TheOutfield.UmbExt.MediaIcons.dll</orgName></file><file><guid>80c20731-3888-41a0-85c7-df3988f5953e.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>doc.gif</orgName></file><file><guid>243c15e8-2dc2-4fe4-84d5-17e9b1d77da7.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>docx.gif</orgName></file><file><guid>07395c04-76eb-4649-993e-cf3384037288.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>flv.gif</orgName></file><file><guid>f721b54d-06e0-430f-85b8-f8718ae73738.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>mov.gif</orgName></file><file><guid>d71fbe8f-f038-4329-b419-6f540b257ba0.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>pdf.gif</orgName></file><file><guid>ad01ebd6-8e84-4977-8074-15296a5d2f74.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>ppt.gif</orgName></file><file><guid>4bba22f6-a422-468c-bec9-82cdae43c9b6.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>pptx.gif</orgName></file><file><guid>8d8ce4bc-dcd8-4f0d-b46c-776d557051f3.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>swf.gif</orgName></file><file><guid>3c0fb59f-7a51-4ef1-9b8b-6fc2590cce39.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>txt.gif</orgName></file><file><guid>b20a62bf-af82-41a3-afef-3d0c60e12432.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>xls.gif</orgName></file><file><guid>ce5b51ca-0891-45d6-bb01-5daa46eb9bfd.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>xlsx.gif</orgName></file><file><guid>77cea0b5-d2fb-4f13-9c1d-a44257425b4f.gif</guid><orgPath>/umbraco/images/umbraco/media</orgPath><orgName>zip.gif</orgName></file></files>
+  
+</umbPackage>

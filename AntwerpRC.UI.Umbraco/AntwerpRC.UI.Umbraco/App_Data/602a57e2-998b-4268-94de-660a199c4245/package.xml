@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>FALMHousekeeping.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>FALMHousekeeping.dll</orgName>
+    </file>
+    <file>
+      <guid>FALMHousekeepingLogsManager.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>FALMHousekeepingLogsManager.dll</orgName>
+    </file>
+    <file>
+      <guid>FALMHousekeepingMediaManager.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>FALMHousekeepingMediaManager.dll</orgName>
+    </file>
+    <file>
+      <guid>FALMHousekeepingUsersManager.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>FALMHousekeepingUsersManager.dll</orgName>
+    </file>
+    <file>
+      <guid>FALMHousekeepingVersionsManager.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>FALMHousekeepingVersionsManager.dll</orgName>
+    </file>
+    <file>
+      <guid>logs_cleanup.gif</guid>
+      <orgPath>/Umbraco/images/umbraco/FALMHousekeeping</orgPath>
+      <orgName>logs_cleanup.gif</orgName>
+    </file>
+    <file>
+      <guid>logs_viewer.gif</guid>
+      <orgPath>/Umbraco/images/umbraco/FALMHousekeeping</orgPath>
+      <orgName>logs_viewer.gif</orgName>
+    </file>
+    <file>
+      <guid>media_folder_cleanup.gif</guid>
+      <orgPath>/Umbraco/images/umbraco/FALMHousekeeping</orgPath>
+      <orgName>media_folder_cleanup.gif</orgName>
+    </file>
+    <file>
+      <guid>users_delete.gif</guid>
+      <orgPath>/Umbraco/images/umbraco/FALMHousekeeping</orgPath>
+      <orgName>users_delete.gif</orgName>
+    </file>
+    <file>
+      <guid>versions_cleanup.gif</guid>
+      <orgPath>/Umbraco/images/umbraco/FALMHousekeeping</orgPath>
+      <orgName>versions_cleanup.gif</orgName>
+    </file>
+    <file>
+      <guid>versions_view.gif</guid>
+      <orgPath>/Umbraco/images/umbraco/FALMHousekeeping</orgPath>
+      <orgName>versions_view.gif</orgName>
+    </file>
+    <file>
+      <guid>cleanupLogs.aspx</guid>
+      <orgPath>/Umbraco/plugins/FALMHousekeeping/logs</orgPath>
+      <orgName>cleanupLogs.aspx</orgName>
+    </file>
+    <file>
+      <guid>showLogs.aspx</guid>
+      <orgPath>/Umbraco/plugins/FALMHousekeeping/logs</orgPath>
+      <orgName>showLogs.aspx</orgName>
+    </file>
+    <file>
+      <guid>cleanupMediaFS.aspx</guid>
+      <orgPath>/Umbraco/plugins/FALMHousekeeping/media</orgPath>
+      <orgName>cleanupMediaFS.aspx</orgName>
+    </file>
+    <file>
+      <guid>deleteUsersBySelection.aspx</guid>
+      <orgPath>/Umbraco/plugins/FALMHousekeeping/users</orgPath>
+      <orgName>deleteUsersBySelection.aspx</orgName>
+    </file>
+    <file>
+      <guid>cleanupVersionsByCount.aspx</guid>
+      <orgPath>/Umbraco/plugins/FALMHousekeeping/versions</orgPath>
+      <orgName>cleanupVersionsByCount.aspx</orgName>
+    </file>
+    <file>
+      <guid>cleanupVersionsByDate.aspx</guid>
+      <orgPath>/Umbraco/plugins/FALMHousekeeping/versions</orgPath>
+      <orgName>cleanupVersionsByDate.aspx</orgName>
+    </file>
+    <file>
+      <guid>showVersions.aspx</guid>
+      <orgPath>/Umbraco/plugins/FALMHousekeeping/versions</orgPath>
+      <orgName>showVersions.aspx</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>FALM_Housekeeping</name>
+      <version>4.11.0.2</version>
+      <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+      <url>http://our.umbraco.org/projects/backoffice-extensions/falm-housekeeping</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Adriano Fabri</name>
+      <website>http://our.umbraco.org/projects/backoffice-extensions/falm-housekeeping</website>
+    </author>
+    <readme><![CDATA[***************************************************************************************************
+** ATTENTION - Please uninstall previous version of FALM Houskeeping **
+** before install v4.11.0.2
+***************************************************************************************************
+This package adds a tree node to the developer section with the following tools:
+
+- Umbraco logs manager: with this tool you can view and delete Umbraco log events.
+N.B.: in order to improve the performance of the log viewer, you can add SQL indexes to the coloumns DateStamp, UserId and LogHeader of umbracoLog table.
+
+- Media folder cleanup: with this tool you can delete those file system folders under '/media' which have no entry in the DB (orphans)
+N.B.: in the current release this feature works only with "UploadAllowDirectories" set to "true".
+
+- Delete users: with this tool you can completely remove Umbraco users.
+
+- Version manager: with this tool you can view and cleanup the version history that Umbraco mantains for each content node.
+
+Versions History:
+v4.11.0.2 - improved multilanguage support (Dictionary)
+v4.11.0.1 - fixed issue
+No treenode creation]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems>
+    <DictionaryItem Key="FALM Housekeeping">
+      <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+      <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+      <DictionaryItem Key="Logs">
+        <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+        <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+        <DictionaryItem Key="logs_Cleanup">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="logs_Cleanup_Interface">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+            <DictionaryItem Key="logs_Cleanup_Button_Delete">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Confirm deletion]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Conferma cancellazione]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_Cleanup_Button_ShowLogs">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Show logs to delete]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Visualizza log da cancellare]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_Cleanup_PageSubTitle">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[With this tool you can delete the Umbraco logs.]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Questo strumento consente di cancellare i log di Umbraco.]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_Cleanup_PageTitle">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Logs Manager - Cleanup]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Gestione Log - Cancellazione]]></Value>
+            </DictionaryItem>
+          </DictionaryItem>
+          <DictionaryItem Key="logs_Cleanup_Messages">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+            <DictionaryItem Key="logs_Cleanup_NoLogsToDeleteUpTo">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[WARNING: no logs to delete up to]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[ATTENZIONE: nessun log da cancellare fino al]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_Cleanup_TableSummaryDescription">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[The table below summarizes the type and number of logs that will be deleted.]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[La tabella riepiloga il tipo e il numero di log che saranno cancellati.]]></Value>
+            </DictionaryItem>
+          </DictionaryItem>
+        </DictionaryItem>
+        <DictionaryItem Key="logs_Common">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="logs_Interface">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+            <DictionaryItem Key="logs_DropDown_Any">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[-- Any --]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[-- Tutti --]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_Label_FilterByDateRangeFrom">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Filter by date range (from)]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Filtra per data (da)]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_Label_FilterByDateRangeTo">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Filter by date range (to)]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Filtra per data (a)]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_Label_FilterByLogType">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Filter by log type]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Filtra per tipo di log]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_Label_FilterByNodeId">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Filter by nodeId]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Filtra con Id del nodo]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_Label_FilterByUser">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Filter by user]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Filtra per utente]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_Label_NoLogsToShow">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[There are no logs to show until ]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[ATTENZIONE: non sono stati trovati log fino al ]]></Value>
+            </DictionaryItem>
+          </DictionaryItem>
+          <DictionaryItem Key="logs_Messages">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+            <DictionaryItem Key="logs_LogsDeleted">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Selected logs have been succesfully deleted]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[I log selezionati sono stati cancellati]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_StartDateGreaterThanEndDate">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[WARNING: The dates have been reversed because start date was greater than end date.]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[ATTENZIONE: Le date sono state invertite in quanto la data di inizio è maggiore della data di fine.]]></Value>
+            </DictionaryItem>
+          </DictionaryItem>
+        </DictionaryItem>
+        <DictionaryItem Key="logs_ShowLogs">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="logs_ShowLogs_Interface">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+            <DictionaryItem Key="logs_ShowLogs_Button_ShowLogs">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Show logs]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Visualizza i log]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_ShowLogs_PageSubTitle">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[With this tool you can view the Umbraco logs.]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Questo strumento consente di consultare i log di Umbraco.]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="logs_ShowLogs_PageTitle">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Log Manager - View]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Gestione Log - Visualizzazione]]></Value>
+            </DictionaryItem>
+          </DictionaryItem>
+          <DictionaryItem Key="logs_ShowLogs_Messages">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          </DictionaryItem>
+        </DictionaryItem>
+      </DictionaryItem>
+      <DictionaryItem Key="Media">
+        <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+        <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+        <DictionaryItem Key="media_Details_Table">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="media_Entry">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Entry]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Valore]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_WarningMessages">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Warning messages]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Messaggi]]></Value>
+          </DictionaryItem>
+        </DictionaryItem>
+        <DictionaryItem Key="media_Interface">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="media_Button_Delete">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Confirm deletion]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Conferma cancellazione]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_Button_ShowOrphans">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Show orphans to delete]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Mostra gli orfani da cancellare]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_PageSubTitle">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[With this tool you can delete file system folders under '/media' which have no entry in the DB (orphans).]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Questo strumento consentedi eliminare dalla cartella "/media" tutte le cartelle che non hanno riferimento nel DB (orfani)]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_PageTitle">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Media folders manager]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Gestione cartelle media]]></Value>
+          </DictionaryItem>
+        </DictionaryItem>
+        <DictionaryItem Key="media_Messages">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="media_Contains">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[contains]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[contiene]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_DBNotMatchFormat">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[DB entry doesn't match the format]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Il valore nel DB non è nel formato]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_Folder">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Folder]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Cartella]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_FolderNameNotNumber">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Folder name is not a number]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Il nome della cartella non è un numero]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_FolderNotFound">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[was not found]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[non è stata trovata]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_FoldersDeleted">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[The following folders have been deleted with their contents]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Le seguenti cartelle e il loro contenuto sono state cancellate]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_FoldersToDelete">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[WARNING: the following folders will be deleted with their contents]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[ATTENZIONE: le seguenti cartelle ed il loro contenuto verranno cancellate]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_Ignored">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[WARNING: The following have been ignored]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[ATTENZIONE: I seguenti oggetti sono stati ignorati]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_IgnoredEntries">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[WARNING: The following entries will be ignored on deletion.]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[ATTENZIONE: I seguenti valori saranno ignorati durante la cancellazione.]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_Items">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[item(s)]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Oggetto(i)]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_MediaNotInFileSystem">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Folder name is referred in the DB but doesn't exist in the File System.]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Il nome della cartella è referenziata nel DB ma non esiste nel File System.]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_NoFoldersDeleted">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[No orphan media folder deleted]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Nessuna cartella orfano è stata cancellata]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="media_NoFoldersToDelete">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[No orphan media folder to delete.]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Non è stata trovata alcuna cartella orfano da cancellare.]]></Value>
+          </DictionaryItem>
+        </DictionaryItem>
+      </DictionaryItem>
+      <DictionaryItem Key="Users">
+        <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+        <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+        <DictionaryItem Key="users_Details_Table">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="users_UserDisabled">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[User disabled]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Utente disabilitato]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="users_UserEmail">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Email]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Email]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="users_UserLogin">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Login]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Account]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="users_UserName">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Username]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Nome utente]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="users_UserType">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[User type]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Tipo utente]]></Value>
+          </DictionaryItem>
+        </DictionaryItem>
+        <DictionaryItem Key="users_Interface">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="users_Button_Delete">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Delete selected users]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Cancella utenti selezionati]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="users_PageSubTitle">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[With this tool you can delete the users.]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Questo strumento consente di cancellare uno o più utenti.]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="users_PageTitle">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Delete users]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Cancellazione utenti]]></Value>
+          </DictionaryItem>
+        </DictionaryItem>
+        <DictionaryItem Key="users_Messages">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="users_NodesAssociation">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[WARNING: every object belonging to the selected user(s) will be associated to user 'admin'\n\nAre you sure you want to delete the selected user(s)?]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[ATTENZIONE: ogni oggetto associato agli utenti selezionati verranno associati all'utente 'admin'\n\nSei sicuro di voler cancellare gli utenti selezionati?]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="users_NoUsersSelected">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[No user selected!]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Non è stato selezionato alcun utente!]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="users_NoUsersToDelete">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[There are no users to delete.]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Non sono stati trovati utenti da poter cancellare]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="users_UsersDeleted">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[All selected users have been deleted.]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Tutti gli utenti selezionati sono stati cancellati.]]></Value>
+          </DictionaryItem>
+        </DictionaryItem>
+      </DictionaryItem>
+      <DictionaryItem Key="Versions">
+        <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+        <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+        <DictionaryItem Key="versions_CleanupByCount">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="versions_CleanupByCount_Button_ClearVersions">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Delete]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Cancella]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="versions_CleanupByCount_NumberOfVersionsToKeep">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Number of versions to keep: ]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Numero delle versioni da tenere: ]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="versions_CleanupByCount_PageSubTitle">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[With this tool you can cleanup the version history, keeping a given number of versions for each content node.]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Con questo strumento è possibile eliminare le vecchie versioni dei nodi, specificando il numero di versioni da mantenere per ogni nodo del content.]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="versions_CleanupByCount_PageTitle">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Versions Manager - Cleanup by Count]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Gestione versioni - Cancellazione mediante conteggio]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="versions_CleanupByCount_PageWarning">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Please note that Umbraco requires each node to have at least 2 versions (the currently published and the latest). These versions will never be deleted.]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[ATTENZIONE: Umbraco richiede che ogni nodo abbia almeno 2 versioni (quella pubblicata e l'ultima salvata). Queste versioni non verrano mai cancellate.]]></Value>
+          </DictionaryItem>
+        </DictionaryItem>
+        <DictionaryItem Key="versions_CleanupByDate">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="versions_CleanupByDate_Button_ClearVersions">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Delete]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Cancella]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="versions_CleanupByDate_DeleteAllVersionsUpTo">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Delete all versions up to]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Cancella le versioni fino al]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="versions_CleanupByDate_PageSubTitle">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[With this tool you can cleanup the version history, deleting every version up to a given date.]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Con questo strumento è possibile eliminare le vecchie versioni dei nodi, fino alla data indicata.]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="versions_CleanupByDate_PageTitle">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Versions Manager - Cleanup by Date]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Gestione versioni - Cancellazione mediante data]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="versions_CleanupByDate_PageWarning">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Please note that Umbraco requires each node to have at least 2 versions (the currently published and the latest). These versions will never be deleted.]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[ATTENZIONE: Umbraco richiede che ogni nodo abbia almeno 2 versioni (quella pubblicata e l'ultima salvata). Queste versioni non verrano mai cancellate.]]></Value>
+          </DictionaryItem>
+        </DictionaryItem>
+        <DictionaryItem Key="versions_Common">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="versions_Label_NoLogsToShow">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[No logs to show]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Nessun log da visualizzare]]></Value>
+          </DictionaryItem>
+          <DictionaryItem Key="versions_Label_NumberOfVersionsDeleted">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Number of version(s) deleted:]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Numero delle versioni cancellate:]]></Value>
+          </DictionaryItem>
+        </DictionaryItem>
+        <DictionaryItem Key="versions_Show">
+          <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+          <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          <DictionaryItem Key="versions_Show_Interface">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+            <DictionaryItem Key="versions_Show_Button_ShowVersions">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Show versions]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Visualizza le versioni]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="versions_Show_FilterByDateRangeFrom">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Filter by date range (from)]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Filtra per data (da)]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="versions_Show_FilterByDateRangeTo">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Filter by date range (to)]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Filtra per data (a)]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="versions_Show_FilterByNodeId">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Filter by nodeId]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Filtra con Id del nodo]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="versions_Show_PageSubTitle">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[With this tool you can view the Umbraco versions.]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Questo strumento consente di consultare le versioni dei nodi di Umbraco.]]></Value>
+            </DictionaryItem>
+            <DictionaryItem Key="versions_Show_PageTitle">
+              <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Versions Manager - View]]></Value>
+              <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[Gestione Versioni - Visualizzazione]]></Value>
+            </DictionaryItem>
+          </DictionaryItem>
+          <DictionaryItem Key="versions_Show_Messages">
+            <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+            <Value LanguageId="2" LanguageCultureAlias="it-IT"><![CDATA[]]></Value>
+          </DictionaryItem>
+        </DictionaryItem>
+      </DictionaryItem>
+    </DictionaryItem>
+  </DictionaryItems>
+  <Languages>
+    <Language Id="2" CultureAlias="it-IT" FriendlyName="Italian (Italy)" />
+  </Languages>
+  <DataTypes />
+</umbPackage>

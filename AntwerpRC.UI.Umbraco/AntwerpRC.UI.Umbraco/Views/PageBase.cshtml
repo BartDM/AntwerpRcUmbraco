@@ -1,0 +1,29 @@
+﻿@using System.Web.Optimization
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Antwerp Rugby Club</title>
+        @Styles.Render("~/Content/boot")
+    </head>  
+    <body>
+        <header>
+            <h3>HEADER</h3>
+        </header>
+	    @RenderSection("Slider",false)
+        <nav>
+            <h3>NAV</h3>
+        </nav>
+        <section>
+            @RenderBody()
+        </section>
+        <footer><h3>FOOTER</h3></footer>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/boot.js")
+    </body>
+
+</html>

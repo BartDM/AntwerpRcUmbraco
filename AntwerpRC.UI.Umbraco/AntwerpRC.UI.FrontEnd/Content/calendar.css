@@ -1,0 +1,24 @@
+﻿.calendar                   { display: table; table-layout: auto}
+.calendar > .row            { margin-left: 0px;}
+.cell                       { display: table-cell; height: 150px; width: auto; min-width: 150px; border: 1px solid #000000; 
+                              border: 1px solid rgba(0, 0, 0, 0.5); vertical-align: top; }
+.cell.empty                 { background-color:gainsboro;}
+.cell.header                { height: 20px; text-align: center;}
+.cell .date-day             { margin: 3px; display: inline-block;}
+.month-header > .month      { border: none; height: 40px; font-size: 1.5em;}
+.month-header > .month > span 
+                            { display: inline-block; margin-top:10px;}
+
+/* Calendar items*/
+.calendar-item              { margin-left: 3px; margin-bottom: 6px; margin-right: 3px; background-color: transparent; border: 1px solid #000000; 
+                              border: 1px solid rgba(0, 0, 0, 0.5); }
+.calendar-item.placeholder  { background-color: greenyellow; height: 22px; width: 120px; border: none; margin-bottom: 10px;}
+.calendar-item-hour, .calendar-item-teams     
+                            { margin: 0 2px;}
+.calendar-item-teams        { font-size: 0.9em;}
+.calendar-item-category     { font-weight: bold;}
+/* Multiple days overspan */
+.m-days                     { position: absolute; text-align: center;}
+.m-days > span              { display: inline-block; width: 100%;}
+.m-days .start-hour         { display: inline-block; float: left; margin-left: 10px;}
+.m-days .end-hour           { display: inline-block; float: right; margin-right: 10px;}

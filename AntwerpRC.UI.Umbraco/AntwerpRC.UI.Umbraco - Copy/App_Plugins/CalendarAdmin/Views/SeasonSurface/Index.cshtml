@@ -1,0 +1,46 @@
+﻿@model List<AntwerpRC.BDO.Season>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Seasons</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Start date</th>
+            <th>End date</th>
+        </tr>
+    </thead>
+    @if (Model.Any())
+    {
+        <tbody>
+            @foreach (var season in Model)
+            {
+                <tr>
+                    <td>@season.Description</td>
+                    <td>
+                        @if (season.StartDate.HasValue)
+                        {
+                            @season.StartDate.Value.ToString("dd/MM/yyyy")
+                        }
+                    </td>
+                    <td>
+                        @if (season.EndDate.HasValue)
+                        {
+                            @season.EndDate.Value.ToString("dd/MM/yyyy")
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    }
+    else
+    {
+        <tbody>
+            <tr>
+                <td colspan="3">No seasons configured</td>
+            </tr>
+        </tbody>
+    }
+</table>
