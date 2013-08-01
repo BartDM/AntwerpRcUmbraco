@@ -274,6 +274,23 @@
     <Content Include="bin\x86\sqlcese40.dll" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\less\bootstrap.css">
+      <DependentUpon>bootstrap.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\bootstrap.min.css">
+      <DependentUpon>bootstrap.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="Content\less\font-awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="Content\less\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\less\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\less\font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="Content\less\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\variables.min.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -385,6 +402,28 @@
     <Content Include="Content\less\bootstrap.less" />
     <Content Include="Content\less\alerts.less" />
     <Content Include="Content\less\accordion.less" />
+    <Content Include="Content\less\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="Content\less\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\less\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="Content\less\font-awesome\font\FontAwesome.otf" />
+    <Content Include="Content\less\font-awesome\less\bootstrap.less" />
+    <Content Include="Content\less\font-awesome\less\core.less" />
+    <Content Include="Content\less\font-awesome\less\extras.less" />
+    <Content Include="Content\less\font-awesome\less\font-awesome-ie7.less" />
+    <Content Include="Content\less\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\less\font-awesome\less\icons.less" />
+    <Content Include="Content\less\font-awesome\less\mixins.less" />
+    <Content Include="Content\less\font-awesome\less\path.less" />
+    <Content Include="Content\less\font-awesome\less\variables.less" />
+    <Content Include="Content\less\font-awesome\scss\font-awesome-ie7.scss" />
+    <Content Include="Content\less\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\less\font-awesome\scss\_bootstrap.scss" />
+    <Content Include="Content\less\font-awesome\scss\_core.scss" />
+    <Content Include="Content\less\font-awesome\scss\_extras.scss" />
+    <Content Include="Content\less\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\less\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\less\font-awesome\scss\_path.scss" />
+    <Content Include="Content\less\font-awesome\scss\_variables.scss" />
     <None Include="scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="scripts\jquery-2.0.3.js" />
     <Content Include="scripts\jquery-2.0.3.min.js" />
@@ -429,6 +468,8 @@
     <Content Include="Views\PageBase.cshtml" />
     <Content Include="scripts\jquery-2.0.3.min.map" />
     <Content Include="Views\HomePage.cshtml" />
+    <Content Include="Views\Team.cshtml" />
+    <Content Include="Views\ContentPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

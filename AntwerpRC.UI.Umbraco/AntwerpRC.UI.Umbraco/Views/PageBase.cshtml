@@ -6,24 +6,100 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Antwerp Rugby Club</title>
+        <title>@Umbraco.Field("seoPageTitle") - Antwerp Rugby Club</title>
+        @if (!string.IsNullOrEmpty(Umbraco.Field("seoKeyWords").ToString()))
+        {
+            <meta name="keywords" content="@Umbraco.Field("seoKeyWords")" />
+        }
+        @if (!string.IsNullOrEmpty(Umbraco.Field("seoDescription").ToString()))
+        {
+                    <meta name="description" content="@Umbraco.Field("seoDescription")" />
+
+        }
+        
         @Styles.Render("~/Content/boot")
     </head>  
     <body>
         <header>
-            <h3>HEADER</h3>
+            <div class="container">
+                <div class="header-content">
+                    <div class="center">Hier komt de header - logo Antwerp (link homepage) - search - ...</div>
+                </div>
+            </div>
         </header>
-	    @RenderSection("Slider",false)
+	    @RenderSection("Slider", false)
         <nav>
-            <h3>NAV</h3>
+                    <div class="container">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="#">Home<b class="caret"></b></a>
+                            </li>
+                            <li>
+                                <a href="#">Menu 1<b class="caret"></b></a>
+                            </li>
+                            <li>
+                                <a href="#">Menu 2<b class="caret"></b></a>
+                            </li>
+                            <li>
+                                <a href="#">Menu 3<b class="caret"></b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         </nav>
         <section>
+            <div class="container" id="body">
+
             @RenderBody()
+            </div>
         </section>
-        <footer><h3>FOOTER</h3></footer>
+        <footer>
+                    <div class="container">
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class="headline">
+                        <h3>About</h3>
+                    </div>
+
+                    <p>For the love of the sport</p>
+                </div>
+                <div class="span4">
+                    <div class="headline">
+                        <h3>Stay connected</h3>
+                    </div>
+
+                    <ul>
+                        <li>Twitter</li>
+                        <li>BRB</li>
+                        <li>facebook</li>
+                    </ul>
+
+                </div>
+                <div class="span4">
+                    <div class="headline">
+                        <h3>Contact</h3>
+                    </div>
+
+                    <address>
+                        aaaaa<br />
+                        bbbbb<br />
+                        ccccc<br />
+                        ddddd<br />
+                    </address>
+                </div>
+            </div>
+        </div>
+
+        </footer>
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/boot.js")
+        @RenderSection("scripts", required: false)
     </body>
 
 </html>

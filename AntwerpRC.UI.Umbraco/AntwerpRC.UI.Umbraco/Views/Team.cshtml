@@ -1,0 +1,27 @@
+﻿@using Umbraco.Core;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
+@using umbraco.presentation.install.utills
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "PageBase.cshtml";
+}
+
+<h1>@Umbraco.Field("pageTitle")</h1>
+<p>@Umbraco.Field("pageContent")</p>
+	
+	@Umbraco.Field("teamName")
+	
+	@Umbraco.Field("teamDescription")
+@{
+    var service = ApplicationContext.Current.Services.ContentService;
+
+    foreach (var id in CurrentPage.teamContacts)
+    {
+        var contact = Umbraco.Content(id.InnerText);
+        <p>@contact["contactFirstName"]</p>
+        <p>@contact["contactLastName"]</p>
+        <p>@contact["contactTitle"]</p>
+    }
+}  
+

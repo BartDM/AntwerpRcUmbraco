@@ -28,14 +28,17 @@
 @orange:                #f89406;
 @pink:                  #c3325f;
 @purple:                #7a43b6;
+@arcRed:                #AB141D;
 
 
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             @grayDark;
+@textColor:             #585F69;
+@footerTextColor:       #E4E4D0;
+@footerBackgroundColor:#585F69;
 
-
+@hoverColor: @arcRed;
 // Links
 // -------------------------
 @linkColor:             #08c;
@@ -47,9 +50,11 @@
 @sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+@swankyFontFamily:      "Swanky and Moo Moo";
+@eliteFontFamily:       "Special Elite";
 
 @baseFontSize:          14px;
-@baseFontFamily:        @sansFontFamily;
+@baseFontFamily:        @eliteFontFamily;
 @baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
 
@@ -139,7 +144,6 @@
 
 // Z-index master list
 // -------------------------
-// Used for a bird's eye view of components dependent on the z-axis
 // Try to avoid customizing these :)
 @zindexDropdown:          1000;
 @zindexPopover:           1010;
@@ -151,8 +155,8 @@
 
 // Sprite icons path
 // -------------------------
-@iconSpritePath:          "../images/glyphicons-halflings.png";
-@iconWhiteSpritePath:     "../images/glyphicons-halflings-white.png";
+@iconSpritePath:          "/Content/images/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../../imgages/glyphicons-halflings-white.png";
 
 
 // Input placeholder text color
@@ -185,12 +189,12 @@
 @navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
-@navbarText:                      #777;
-@navbarLinkColor:                 #777;
-@navbarLinkColorHover:            @grayDark;
-@navbarLinkColorActive:           @gray;
+@navbarText:                      @textColor;
+@navbarLinkColor:                 @textColor;
+@navbarLinkColorHover:            @hoverColor;
+@navbarLinkColorActive:           @hoverColor;
 @navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
+@navbarLinkBackgroundActive:      transparent;
 
 @navbarBrandColor:                @navbarLinkColor;
 
