@@ -272,8 +272,12 @@
     <Content Include="bin\x86\sqlceme40.dll" />
     <Content Include="bin\x86\sqlceqp40.dll" />
     <Content Include="bin\x86\sqlcese40.dll" />
+    <Content Include="Content\images\bx_loader.gif" />
+    <Content Include="Content\images\controls.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\twitter-bird-blue-on-white.png" />
+    <Content Include="Content\jquery.bxslider.css" />
     <Content Include="Content\less\bootstrap.css">
       <DependentUpon>bootstrap.less</DependentUpon>
     </Content>
@@ -285,6 +289,12 @@
     <Content Include="Content\less\font-awesome\css\font-awesome.css" />
     <Content Include="Content\less\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\less\font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="Content\less\homepage.css">
+      <DependentUpon>homepage.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\homepage.min.css">
+      <DependentUpon>homepage.less</DependentUpon>
+    </Content>
     <Content Include="Content\less\variables.css">
       <DependentUpon>variables.less</DependentUpon>
     </Content>
@@ -424,11 +434,15 @@
     <Content Include="Content\less\font-awesome\scss\_mixins.scss" />
     <Content Include="Content\less\font-awesome\scss\_path.scss" />
     <Content Include="Content\less\font-awesome\scss\_variables.scss" />
+    <Content Include="macroScripts\GetSponsorsHomePage.cshtml" />
+    <Content Include="Content\less\homepage.less" />
     <None Include="scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="scripts\jquery-2.0.3.js" />
     <Content Include="scripts\jquery-2.0.3.min.js" />
     <Content Include="scripts\jquery-ui-1.10.3.js" />
     <Content Include="scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="scripts\jquery.bxslider.js" />
+    <Content Include="scripts\jquery.bxslider.min.js" />
     <Content Include="scripts\less.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="usercontrols\dummy.txt" />

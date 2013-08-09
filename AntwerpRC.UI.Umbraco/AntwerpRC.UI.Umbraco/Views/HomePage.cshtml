@@ -2,10 +2,259 @@
 @{
     Layout = "PageBase.cshtml";
 }
-
-<h1>HOMEPAGE</h1>
-	
-@section Slider 
+@section head
 {
-	<h4>Slider homepage</h4>
+    <link href="~/Content/less/homepage.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.bxslider.css" rel="stylesheet" />
 }
+@section scripts
+{
+
+    <script src="~/scripts/jquery.bxslider.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.bxslider').bxSlider({
+                minSlides: 5,
+                maxSlides: 5,
+                slideWidth: 400,
+                slideMargin: 15,
+                controls: false,
+                auto: true,
+                speed: 5000,
+                randomStart: false,
+                infiniteLoop: true,
+                preloadImages: 'all',
+                autoHover: true,
+                onSliderLoad: function () {
+                    $('.bxslider img').hover(function () {
+                        var imgSrc = $(this).attr("data-img-src-color");
+                        $(this).attr("src", imgSrc);
+                        if (this.complete) {
+                            $(this).trigger('load');
+                        }
+                    }, function () {
+                        var imgSrc = $(this).attr("data-img-src-bw");
+                        $(this).attr("src", imgSrc);
+                        if (this.complete) {
+                            $(this).trigger('load');
+                        }
+                    });
+                }
+            });
+
+        });
+    </script>
+}
+
+@section Slider
+{
+    <h4>Slider homepage</h4>
+}
+<div class="row-fluid">
+    <div class="span8 text-content">
+        <div class="headline">
+            <h3>@CurrentPage.HomeWelcomeTitle</h3>
+        </div>
+        <p>@CurrentPage.HomeWelcomeText</p>
+    </div>
+    <div class="span4">
+        <div class="headline">
+            <h3>Laatste nieuws</h3>
+        </div>
+        <div class="row-fluid posts-sidebar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="headline">
+                            <h5>EK Rolstoelrugby in Antwerpen</h5>
+                        </div>
+                        <p>Van 10 tot 18 augustus gaat in het kader van 'Antwerpen Europese sporthoofdstad' het Europees Kampioenschap Rolstoelrugby door in Antwerpen</p>
+                        <div class="read-more pull-right"><a href="#">lees meer...</a></div>
+                        <div class="clearfix"></div>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="headline">
+
+                            <h5>Seizoen 2013 - 2014</h5>
+                        </div>
+                        <p>Terwijl iedereen kan genieten van een deugddoende zomerstop zijn de voorbereidingen voor het seizoen 2013 - 2014 al volop aan de gang.</p>
+                        <div class="read-more pull-right"><a href="#">lees meer...</a></div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="headline">
+
+                            <h5>Speeldata seizoen 2013-2014</h5>
+                        </div>
+                        <p>De Belgische Rugby Bond heeft deze week de kalender uitgebracht voor de competitieve wedstrijden.</p>
+                        <div class="read-more pull-right"><a href="#">lees meer...</a></div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span6">
+        <div class="headline">
+            <h3>Tweets</h3>
+        </div>
+        <div class="tweet-box">
+            <div class="tweet">
+                <div class="tweet-header">
+                    <a href="https://twitter.com/Nigelrefowens">
+                        <span class="tweet-user">Nigel Owens</span>
+                        <span class="tweet-twitter-username">‏@@Nigelrefowens</span>
+                    </a>
+                </div>
+                <div class="twitter-bird"></div>
+                <div class="clearfix"></div>
+                <div class="tweet-content">New srum law. Crouch Bind(players bind & don't let go)Set. No9 puts ball in on refs command & in THE middle & only when scrum is stationary</div>
+            </div>
+            <div class="tweet">
+                <div class="tweet-header">
+                    <a href="https://twitter.com/AntwerpRugby">
+                        <span class="tweet-user">AntwerpRugbyClub</span>
+                        <span class="tweet-twitter-username">‏@@AntwerpRugby</span>
+                    </a>
+                </div>
+                <div class="twitter-bird"></div>
+                <div class="clearfix"></div>
+                <div class="tweet-content"><a href="#">@@rugbyBEL_</a> <a href="#">@@RugbyVL</a> <a href="#">“@@AntwerpRugby</a> Antwerp hoofdcoach ook coach van England Counties U20 <a href="#">http://bit.ly/13ZXjwS</a> <a href="#">#AntwerpRugby</a>””</div>
+            </div>
+            <div class="tweet">
+                <div class="tweet-header">
+                    <a href="https://twitter.com/AntwerpRugby">
+                        <span class="tweet-user">AntwerpRugbyClub</span>
+                        <span class="tweet-twitter-username">‏@@AntwerpRugby</span>
+                    </a>
+                </div>
+                <div class="twitter-bird"></div>
+                <div class="clearfix"></div>
+                <div class="tweet-content">Antwerp hoofdcoach ook coach van England Counties U20 <a href="http://bit.ly/13ZXjwS">http://bit.ly/13ZXjwS</a> <a href="https://twitter.com/search?q=#AntwerpRugby">#AntwerpRugby</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="span6 calendar">
+        <div class="headline">
+            <h3>Kalender</h3>
+        </div>
+        <div class="row-fluid">
+            <div class="span6 date-overview-container">
+                <div class="calendar-date-overview span4">
+                    <div class="calendar-date" title="Zaterdag 17 augustus 2013">
+                        <div class="day">17</div>
+                        <div class="month">AUG</div>
+                    </div>
+                </div>
+                <div class="span8">
+                    <div class="calendar-item">
+                        <span class="calender-item-hour pull-left">13:00</span>
+                        <span class="calendar-item-category pull-left">Senioren II</span>
+                        <div class="clearfix"></div>
+                        <div class="calendar-item-teams"><b>Antwerp</b> - Eeklo</div>
+                    </div>
+                    <div class="calendar-item">
+                        <span class="calender-item-hour pull-left">15:00</span>
+                        <span class="calendar-item-category pull-left">Senioren I</span>
+                        <div class="calendar-item-teams"><b>Antwerp</b> - Eeklo</div>
+                    </div>
+                    <div class="calendar-item">
+                        <span class="calender-item-hour pull-left">13:00</span>
+                        <span class="calendar-item-category pull-left">Senioren II</span>
+                        <div class="clearfix"></div>
+                        <div class="calendar-item-teams"><b>Antwerp</b> - Eeklo</div>
+                    </div>
+                    <div class="calendar-item">
+                        <span class="calender-item-hour pull-left">15:00</span>
+                        <span class="calendar-item-category pull-left">Senioren I</span>
+                        <div class="calendar-item-teams"><b>Antwerp</b> - Eeklo</div>
+                    </div>
+                </div>
+            </div>
+            <div class="span6 date-overview-container">
+                <div class="calendar-date-overview span4">
+@*                    <div class="calendar-date" title="Zaterdag 18 augustus 2013">*@
+@*                        <div class="day">18</div>*@
+@*                        <div class="month">AUG</div>*@
+@*                    </div>*@
+                </div>
+                <div class="span8">
+                    <div class="calendar-item">
+                        <span class="calender-item-hour pull-left">13:00</span>
+                        <span class="calendar-item-category pull-left">Senioren II</span>
+                        <div class="clearfix"></div>
+                        <div class="calendar-item-teams"><b>Antwerp</b> - Eeklo</div>
+                    </div>
+                    <div class="calendar-item">
+                        <span class="calender-item-hour pull-left">15:00</span>
+                        <span class="calendar-item-category pull-left">Senioren I</span>
+                        <div class="calendar-item-teams"><b>Antwerp</b> - Eeklo</div>
+                    </div>
+                </div>
+            </div>
+            <div class="span6 date-overview-container">
+                <div class="calendar-date-overview span4">
+                    <div class="calendar-date" title="Zaterdag 19 augustus 2013">
+                        <div class="day">19</div>
+                        <div class="month">AUG</div>
+                    </div>
+                </div>
+                <div class="span8">
+                    <div class="calendar-item">
+                        <span class="calender-item-hour pull-left">13:00</span>
+                        <span class="calendar-item-category pull-left">Senioren II</span>
+                        <div class="clearfix"></div>
+                        <div class="calendar-item-teams"><b>Antwerp</b> - Eeklo</div>
+                    </div>
+                    <div class="calendar-item">
+                        <span class="calender-item-hour pull-left">15:00</span>
+                        <span class="calendar-item-category pull-left">Senioren I</span>
+                        <div class="calendar-item-teams"><b>Antwerp</b> - Eeklo</div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <div class="row-fluid">
+            <div class="span6 date-overview-container">
+                <div class="calendar-date-overview span4">
+                    <div class="calendar-date" title="Zaterdag 18 augustus 2013">
+                        <div class="day">18</div>
+                        <div class="month">AUG</div>
+                    </div>
+                </div>
+                <div class="span8">
+                    <div class="calendar-item">
+                        <span class="calender-item-hour pull-left">13:00</span>
+                        <span class="calendar-item-category pull-left">Senioren II</span>
+                        <div class="clearfix"></div>
+                        <div class="calendar-item-teams"><b>Antwerp</b> - Eeklo</div>
+                    </div>
+                    <div class="calendar-item">
+                        <span class="calender-item-hour pull-left">15:00</span>
+                        <span class="calendar-item-category pull-left">Senioren I</span>
+                        <div class="calendar-item-teams"><b>Antwerp</b> - Eeklo</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span12">
+        <div class="headline">
+            <h3>Met dank aan onze sponsors</h3>
+        </div>
+
+        @Umbraco.RenderMacro("GetSponsorsHomePage")
+    </div>
+</div>

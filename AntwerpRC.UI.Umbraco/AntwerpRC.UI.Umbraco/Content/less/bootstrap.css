@@ -6273,170 +6273,105 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
-#body {
-  min-height: 400px;
-}
 header {
   height: 70px;
   background: none repeat scroll 0 0 #585f69;
   color: #e4e4d0;
 }
 .header-content div {
+  position: relative;
   top: 30px;
+}
+html,
+body {
+  height: 100%;
+}
+#wrapper {
+  min-height: 100%;
   position: relative;
 }
-.slider {
-  background-image: url(/content/images/slider.jpg);
-  width: 100%;
-  height: 400px;
-}
-.slider .slider-image {
-  float: right;
-  margin-right: 100px;
-  margin-top: 100px;
-  left: 800px;
-  top: 25px;
-  width: 280px;
-  border-radius: 10px;
-}
-.slider .slider-text {
-  width: 479px;
-  color: white;
-  position: absolute;
-  text-transform: uppercase;
-  left: 30px;
-  top: 100px;
-  line-height: 30px;
-  font-size: 40px;
-}
-.slider .slider-text i {
-  background: url('/content/images/sliderTextBg.png') repeat 0 0 scroll;
-  padding: 0px 10px 0px 0px;
-  margin-bottom: 15px;
-  display: inline-block;
-}
-.welcome {
-  box-shadow: 0 0 4px #EEEEEE inset;
-  padding: 30px 0 20px;
-  background-color: #fafafa;
-  background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
-  background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
-}
-.welcome h1 {
-  color: #585f69;
-  display: block;
-  font-size: 35px;
-  line-height: 40px;
-  margin-bottom: 12px;
-}
-.welcome p {
-  font-size: 20px;
-}
-.margin-bottom-30 {
-  margin-bottom: 30px;
-}
-.components .span4 {
-  border: 1px #e83d47 solid;
-  height: 120px;
-  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
-}
-.components .span4:hover {
-  border: none;
-}
-.components .span4:hover i {
-  color: #6f7885;
-}
-.components span {
-  display: inline-block;
-  margin-top: 10px;
-}
-.components i {
-  color: #ab141d;
-  float: left;
-  font-size: 40px;
-  padding: 10px;
-  text-align: center;
-  transition: all 0.4s ease-in-out 0s;
-}
-.components .desc {
-  float: right;
-  width: 75%;
-  margin-right: 2px;
+#body-wrapper {
+  padding-bottom: -100px;
+  clear: both;
 }
 footer {
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
   background: none repeat scroll 0 0 #585f69;
   color: #e4e4d0;
-  margin-top: 40px;
 }
 footer .headline {
-  border-bottom: 1px dotted #e4e4d0;
   display: block;
   margin: 10px 0 25px;
+  border-bottom: 1px dotted #e4e4d0;
 }
 footer .headline h3 {
-  border-bottom: 2px solid #ab141d;
   display: inline-block;
   margin: 0 0 -2px;
-}
-.game-header {
-  box-shadow: 0 0 4px #EEEEEE inset;
-  padding: 10px 0;
-  background-color: #fafafa;
-  background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
-  background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
-  font-size: 18px;
-}
-.game-header i {
-  color: #ab141d;
-  font-size: 25px;
-  text-align: center;
-  transition: all 0.4s ease-in-out 0s;
-}
-.game-header .game-teams {
-  margin-left: 10px;
-}
-.game-header .game-teams > div {
-  display: inline-block;
-  margin-left: 10px;
-}
-.game-header .game-date {
-  margin-right: 10px;
-}
-.game-header .game-date i {
-  margin-right: 15px;
-  font-size: 20px;
-}
-.game-detail {
-  box-shadow: 0 0 4px #EEEEEE inset;
-  padding-top: 10px;
-}
-.game-detail .table th {
-  text-align: center;
-}
-.game-detail .red {
-  color: #9d261d;
-}
-.game-detail .table tr.bold {
-  font-weight: bold;
-}
-.game-detail .game-points td {
-  text-align: center;
-}
-.game-detail i {
-  color: #ab141d;
-  text-align: center;
-  transition: all 0.4s ease-in-out 0s;
+  border-bottom: 2px solid #ab141d;
 }
 .center {
   text-align: center;
+}
+.slider {
+  width: 100%;
+  height: 400px;
+  background-image: url(/content/images/slider.jpg);
+}
+.slider .slider-image {
+  top: 25px;
+  left: 800px;
+  float: right;
+  margin-top: 100px;
+  margin-right: 100px;
+  width: 280px;
+}
+.headline h3,
+.headline h4 {
+  border-bottom: 2px solid #ab141d;
+  color: #585f69;
+  display: inline-block;
+  margin: 0 0 -2px;
+  padding-right: 10px;
+  text-shadow: 0 0 1px #f6f6f6;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #585f69;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal !important;
+  margin-top: 5px;
+  text-shadow: 0 0 1px #f6f6f6;
+}
+h3 {
+  font-size: 24.5px;
+}
+h1,
+h2,
+h3 {
+  line-height: 40px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 20px;
+  margin: 10px 0;
+  text-rendering: optimizelegibility;
+}
+.headline {
+  border-bottom: 1px dotted #E4E9F0;
+  display: block;
+  margin: 10px 0 25px;
 }

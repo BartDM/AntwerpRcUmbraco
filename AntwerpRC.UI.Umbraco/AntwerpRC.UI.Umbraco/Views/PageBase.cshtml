@@ -5,102 +5,122 @@
 }
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>@Umbraco.Field("seoPageTitle") - Antwerp Rugby Club</title>
-        @if (!string.IsNullOrEmpty(Umbraco.Field("seoKeyWords").ToString()))
-        {
-            <meta name="keywords" content="@Umbraco.Field("seoKeyWords")" />
-        }
-        @if (!string.IsNullOrEmpty(Umbraco.Field("seoDescription").ToString()))
-        {
-                    <meta name="description" content="@Umbraco.Field("seoDescription")" />
+<head>
+    <title>@Umbraco.Field("seoPageTitle") - Antwerp Rugby Club</title>
+    @if (!string.IsNullOrEmpty(Umbraco.Field("seoKeyWords").ToString()))
+    {
+        <meta name="keywords" content="@Umbraco.Field("seoKeyWords")" />
+    }
+    @if (!string.IsNullOrEmpty(Umbraco.Field("seoDescription").ToString()))
+    {
+        <meta name="description" content="@Umbraco.Field("seoDescription")" />
 
-        }
-        
-        
-        @Styles.Render("~/Content/boot")
-    </head>  
-    <body>
+    }
+    <link href="http://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    @Styles.Render("~/Content/boot")
+    @RenderSection("head", false)
+</head>
+<body>
+    <div id="wrapper">
         <header>
             <div class="container">
                 <div class="header-content">
-                    <div class="center">Hier komt de header - logo Antwerp (link homepage) - search - ...</div>
+                    <div class="center">
+                        Hier komt de header - logo Antwerp (link homepage) - search - ...
+                    </div>
                 </div>
             </div>
         </header>
-	    @RenderSection("Slider", false)
+        @RenderSection("Slider", false)
+
         <nav>
-                    <div class="container">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                            <li class="active">
-                                <a href="#">Home<b class="caret"></b></a>
-                            </li>
-                            <li>
-                                <a href="#">Menu 1<b class="caret"></b></a>
-                            </li>
-                            <li>
-                                <a href="#">Menu 2<b class="caret"></b></a>
-                            </li>
-                            <li>
-                                <a href="#">Menu 3<b class="caret"></b></a>
-                            </li>
-                        </ul>
+            <div class="container">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="nav-collapse">
+                            <ul class="nav">
+                                <li class="active">
+                                    <a href="#">Home<b class="caret"></b></a>
+                                </li>
+                                <li>
+                                    <a href="#">Menu 1<b class="caret"></b></a>
+                                </li>
+                                <li>
+                                    <a href="#">Menu 2<b class="caret"></b></a>
+                                </li>
+                                <li>
+                                    <a href="#">Menu 3<b class="caret"></b></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </nav>
-        <section>
-            <div class="container" id="body">
+        <div id="body-wrapper" class="container">
 
             @RenderBody()
-            </div>
-        </section>
-        <footer>
-                    <div class="container">
-            <div class="row-fluid">
-                <div class="span4">
-                    <div class="headline">
-                        <h3>About</h3>
-                    </div>
-
-                    <p>For the love of the sport</p>
-                </div>
-                <div class="span4">
-                    <div class="headline">
-                        <h3>Stay connected</h3>
-                    </div>
-
-                    <ul>
-                        <li>Twitter</li>
-                        <li>BRB</li>
-                        <li>facebook</li>
-                    </ul>
-
-                </div>
-                <div class="span4">
-                    <div class="headline">
-                        <h3>Contact</h3>
-                    </div>
-
-                    <address>
-                        aaaaa<br />
-                        bbbbb<br />
-                        ccccc<br />
-                        ddddd<br />
-                    </address>
-                </div>
-            </div>
         </div>
+        <footer>
+            <div class="container">
+                <div class="row-fluid">
 
+                    <div class="span4">
+                        <div class="headline">
+                            <h3>Stay connected</h3>
+                        </div>
+
+                        <ul>
+                            <li>Twitter</li>
+                            <li>BRB</li>
+                            <li>facebook</li>
+                        </ul>
+
+                    </div>
+                    <div class="span4">
+                        <div class="headline">
+                            <h3>Contact</h3>
+                        </div>
+
+                        <address>
+                            aaaaa<br />
+                            bbbbb<br />
+                            ccccc<br />
+                            ddddd<br />
+                        </address>
+                    </div>
+                    <div class="span4">
+                        <div class="headline">
+                            <h3>Contact info</h3>
+                        </div>
+                        <address>
+                            <b class="icon-home"></b>Mitterlije<br />
+                            <b></b>2650 Edegem<br />
+                            <b class="icon-envelope"></b><a href="mailto:info@antwerprc.be">info@antwerprc.be</a><br />
+                            <b class="icon-phone"></b>+32 3 449.63.93<br />
+                            <b class="icon-globe"></b><a href="http://www.antwerprc.be">http://www.antwerprc.be</a>
+                        </address>
+                        <div class="headline">
+                            <h3>Sociaal</h3>
+                        </div>
+                        <ul class="social-icons">
+                            <li><a class="social-twitter"></a></li>
+                            <li><a class="social-facebook"></a></li>
+                            <li><a class="social-googleplus"></a></li>
+                            <li><a class="social-linkedin"></a></li>
+                            <li><a class="social-foursquare"></a></li>
+                        </ul>
+                        <div class="clearfix margin-bottom-15"></div>
+                    </div>
+                </div>
+            </div>
         </footer>
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/boot.js")
         @RenderSection("scripts", required: false)
-    </body>
+    </div>
+</body>
 
 </html>
