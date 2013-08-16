@@ -24,71 +24,126 @@
 <body>
     <div id="wrapper">
         <header>
-            <div class="container">
-                <div class="header-content">
-                    <div class="center">
-                        Hier komt de header - logo Antwerp (link homepage) - search - ...
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span6 pull-left">
+                        <div class="logo pull-left">
+                            <a href="#"><img src="../Content/images/ARC.png" alt="Antwerp Rugby Club logo" /></a>
+                        </div>
+                        <div class="headline pull-left"><h1>Antwerp Rugby Club</h1></div>
+                        
                     </div>
+
+                    <div class="pull-right search">
+                        <div class="search-box input-append">
+                            <input type="text" class="span10" />
+                            <button class="btn" type="button"><b class="icon-search"></b></button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+            <div class="clearfix"></div>
+
         </header>
         @RenderSection("Slider", false)
+        <div class="container-fluid">
 
-        <nav>
-            <div class="container">
+            <nav>
                 <div class="navbar">
                     <div class="navbar-inner">
                         <div class="nav-collapse">
                             <ul class="nav">
                                 <li class="active">
-                                    <a href="#">Home<b class="caret"></b></a>
+                                    <a href="#">Home</a>
                                 </li>
                                 <li>
-                                    <a href="#">Menu 1<b class="caret"></b></a>
+                                    <a href="#">Nieuws</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Teams<b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Veteranen</a></li>
+                                        <li><a href="#">Senioren</a></li>
+                                        <li><a href="#">Dames</a></li>
+                                        <li><a href="#">U19</a></li>
+                                        <li><a href="#">U17</a></li>
+                                        <li><a href="#">U15</a></li>
+                                        <li><a href="#">U13</a></li>
+                                        <li><a href="#">U11</a></li>
+                                        <li><a href="#">U09</a></li>
+                                        <li><a href="#">Antwerp Wanckers</a></li>
+                                        <li><a href="#">Referees</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Club info<b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Lid worden</a></li>
+                                        <li><a href="#">Trainingen</a></li>
+                                        <li><a href="#">Ligging</a></li>
+                                        <li><a href="#">Lidgelden</a></li>
+                                        <li><a href="#">Contact personen</a></li>
+                                        <li><a href="#">Geschiedenis</a></li>
+                                        <li><a href="#">Formulieren</a></li>
+                                        <li><a href="#">Shop</a></li>
+                                        <li><a href="#">Handleiding voor beginners</a></li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="#">Menu 2<b class="caret"></b></a>
+                                    <a href="#">Foto's</a>
                                 </li>
                                 <li>
-                                    <a href="#">Menu 3<b class="caret"></b></a>
+                                    <a href="#">Kalender</a>
                                 </li>
+                                <li>
+                                    <a href="#">Sponsors</a>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-        <div id="body-wrapper" class="container">
+            </nav>
+        </div>
+
+        <div id="body-wrapper" class="container-fluid">
 
             @RenderBody()
         </div>
         <footer>
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row-fluid">
 
-                    <div class="span4">
+                    <div class="span4 teams">
                         <div class="headline">
-                            <h3>Stay connected</h3>
+                            <h3>Teams</h3>
                         </div>
-
                         <ul>
-                            <li>Twitter</li>
-                            <li>BRB</li>
-                            <li>facebook</li>
+                            <li><a href="#">Veteranen</a></li>
+                            <li><a href="#">Senioren</a></li>
+                            <li><a href="#">Vrouwen</a></li>
+                            <li><a href="#">U19</a></li>
+                            <li><a href="#">U17</a></li>
+                            <li><a href="#">U15</a></li>
+                            <li><a href="#">U13</a></li>
+                            <li><a href="#">U11</a></li>
+                            <li><a href="#">U09</a></li>
                         </ul>
 
                     </div>
-                    <div class="span4">
+                    <div class="span4 location">
                         <div class="headline">
-                            <h3>Contact</h3>
+                            <h3>Ligging</h3>
                         </div>
-
-                        <address>
-                            aaaaa<br />
-                            bbbbb<br />
-                            ccccc<br />
-                            ddddd<br />
-                        </address>
+                        <a href="https://maps.google.be/?q=Antwerp%20Rugby%20Club%20Edegem" target="_blank">
+                            <div class="map">
+                                @*                                    <img src="../Content/images/map1_BW.jpg" alt="Route Mitterlije, Edegem" data-hover-image-src="../Content/images/map1.jpg" />*@
+                            </div>
+                            <div class="map">
+                                @*                                    <img src="../Content/images/map2_BW.jpg" alt="Route Romeinse Put, Edegem" data-hover-image-src="../Content/images/map2.jpg" />*@
+                            </div>
+                        </a>
                     </div>
                     <div class="span4">
                         <div class="headline">
@@ -117,6 +172,7 @@
             </div>
         </footer>
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
         @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/boot.js")
         @RenderSection("scripts", required: false)

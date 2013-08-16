@@ -272,10 +272,17 @@
     <Content Include="bin\x86\sqlceme40.dll" />
     <Content Include="bin\x86\sqlceqp40.dll" />
     <Content Include="bin\x86\sqlcese40.dll" />
+    <Content Include="Content\images\ARC.png" />
     <Content Include="Content\images\bx_loader.gif" />
     <Content Include="Content\images\controls.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\map1.jpg" />
+    <Content Include="Content\images\map1_BW.jpg" />
+    <Content Include="Content\images\map2.jpg" />
+    <Content Include="Content\images\map2_BW.jpg" />
+    <Content Include="Content\images\slider1.jpg" />
+    <Content Include="Content\images\social.png" />
     <Content Include="Content\images\twitter-bird-blue-on-white.png" />
     <Content Include="Content\jquery.bxslider.css" />
     <Content Include="Content\less\bootstrap.css">
@@ -437,6 +444,7 @@
     <Content Include="macroScripts\GetSponsorsHomePage.cshtml" />
     <Content Include="Content\less\homepage.less" />
     <None Include="scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="scripts\homepage-slider.js.js" />
     <Content Include="scripts\jquery-2.0.3.js" />
     <Content Include="scripts\jquery-2.0.3.min.js" />
     <Content Include="scripts\jquery-ui-1.10.3.js" />
