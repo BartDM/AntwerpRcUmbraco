@@ -273,6 +273,7 @@
     <Content Include="bin\x86\sqlceqp40.dll" />
     <Content Include="bin\x86\sqlcese40.dll" />
     <Content Include="Content\images\ARC.png" />
+    <Content Include="Content\images\arrows.png" />
     <Content Include="Content\images\bx_loader.gif" />
     <Content Include="Content\images\controls.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
@@ -296,11 +297,11 @@
     <Content Include="Content\less\font-awesome\css\font-awesome.css" />
     <Content Include="Content\less\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\less\font-awesome\font\fontawesome-webfont.svg" />
-    <Content Include="Content\less\homepage.css">
-      <DependentUpon>homepage.less</DependentUpon>
+    <Content Include="Content\less\Slider.css">
+      <DependentUpon>Slider.less</DependentUpon>
     </Content>
-    <Content Include="Content\less\homepage.min.css">
-      <DependentUpon>homepage.less</DependentUpon>
+    <Content Include="Content\less\Slider.min.css">
+      <DependentUpon>Slider.less</DependentUpon>
     </Content>
     <Content Include="Content\less\variables.css">
       <DependentUpon>variables.less</DependentUpon>
@@ -370,9 +371,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
-    <Content Include="css\dummy.txt" />
     <Content Include="default.aspx" />
-    <Content Include="macroScripts\dummy.txt" />
     <Content Include="masterpages\dummy.txt" />
     <Content Include="media\dummy.txt" />
     <Content Include="scripts\bootstrap.js" />
@@ -442,19 +441,28 @@
     <Content Include="Content\less\font-awesome\scss\_path.scss" />
     <Content Include="Content\less\font-awesome\scss\_variables.scss" />
     <Content Include="macroScripts\GetSponsorsHomePage.cshtml" />
-    <Content Include="Content\less\homepage.less" />
+    <Content Include="Content\less\Slider.less" />
+    <Content Include="macroScripts\GetCalenderHomepage.cshtml" />
+    <Content Include="macroScripts\GetTweetsHomepage.cshtml" />
+    <Content Include="macroScripts\GetNewsHomepage.cshtml" />
+    <Content Include="macroScripts\GetResultsHomepage.cshtml" />
+    <Content Include="macroScripts\GetRankingHomepage.cshtml" />
+    <None Include="Properties\PublishProfiles\Azure.pubxml" />
     <None Include="scripts\jquery-2.0.3.intellisense.js" />
-    <Content Include="scripts\homepage-slider.js.js" />
+    <Content Include="scripts\homepage.js" />
     <Content Include="scripts\jquery-2.0.3.js" />
     <Content Include="scripts\jquery-2.0.3.min.js" />
     <Content Include="scripts\jquery-ui-1.10.3.js" />
     <Content Include="scripts\jquery-ui-1.10.3.min.js" />
     <Content Include="scripts\jquery.bxslider.js" />
     <Content Include="scripts\jquery.bxslider.min.js" />
+    <Content Include="scripts\jquery.cslider.js" />
     <Content Include="scripts\less.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="usercontrols\dummy.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -501,7 +509,9 @@
     <Content Include="xslt\dummy.txt" />
     <Content Include="xslt\Web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="css\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

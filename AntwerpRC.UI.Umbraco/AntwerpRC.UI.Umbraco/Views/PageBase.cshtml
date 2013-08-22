@@ -19,6 +19,7 @@
     <link href="http://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     @Styles.Render("~/Content/boot")
+    @Styles.Render("~/Content/jquery-plugins")
     @RenderSection("head", false)
 </head>
 <body>
@@ -55,7 +56,7 @@
                         <div class="nav-collapse">
                             <ul class="nav">
                                 <li class="active">
-                                    <a href="#">Home</a>
+                                    <a href="/">Home</a>
                                 </li>
                                 <li>
                                     <a href="#">Nieuws</a>
@@ -64,7 +65,7 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Teams<b class="caret"></b></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="#">Veteranen</a></li>
-                                        <li><a href="#">Senioren</a></li>
+                                        <li><a href="/teams/senioren">Senioren</a></li>
                                         <li><a href="#">Dames</a></li>
                                         <li><a href="#">U19</a></li>
                                         <li><a href="#">U17</a></li>
@@ -121,7 +122,7 @@
                         </div>
                         <ul>
                             <li><a href="#">Veteranen</a></li>
-                            <li><a href="#">Senioren</a></li>
+                            <li><a href="/teams/senioren">Senioren</a></li>
                             <li><a href="#">Vrouwen</a></li>
                             <li><a href="#">U19</a></li>
                             <li><a href="#">U17</a></li>
@@ -171,9 +172,9 @@
                 </div>
             </div>
         </footer>
+        @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryui")
-        @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/boot.js")
         @RenderSection("scripts", required: false)
     </div>

@@ -15,6 +15,8 @@ namespace AntwerpRC.UI.Umbraco
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquery-sliders").Include("~/scripts/jquery.bxslider.js", "~/scripts/jquery.cslider.js"));
+
             //            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
             //                        "~/Scripts/jquery.unobtrusive*",
             //                        "~/Scripts/jquery.validate*"));
@@ -32,6 +34,12 @@ namespace AntwerpRC.UI.Umbraco
             lessBundle.Transforms.Add(new CssMinify());
             bundles.Add(lessBundle);
 
+            var sliderBundle = new Bundle("~/Content/slider").Include("~/Content/less/Slider.less");
+            sliderBundle.Transforms.Add(new LessTransform());
+            sliderBundle.Transforms.Add(new CssMinify());
+            bundles.Add(sliderBundle);
+
+            bundles.Add(new StyleBundle("~/Content/jquery-plugins").Include("~/Content/jquery.bxslider.css", "~/Content/jquery.cslider.css"));
 
             //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
