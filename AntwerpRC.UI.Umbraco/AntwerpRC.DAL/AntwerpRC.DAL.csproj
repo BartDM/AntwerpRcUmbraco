@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AntwerpRC.DAL</RootNamespace>
     <AssemblyName>AntwerpRC.DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,16 +30,19 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -50,66 +55,83 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs">
-      <DependentUpon>Calender.tt</DependentUpon>
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
     </Compile>
-    <Compile Include="Calender.Context.cs">
+    <Compile Include="AntwerpRC.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Calender.Context.tt</DependentUpon>
+      <DependentUpon>AntwerpRC.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Calender.cs">
+    <Compile Include="AntwerpRC.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Calender.tt</DependentUpon>
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
     </Compile>
-    <Compile Include="Calender.Designer.cs">
+    <Compile Include="AntwerpRC.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Calender.edmx</DependentUpon>
+      <DependentUpon>AntwerpRC.edmx</DependentUpon>
     </Compile>
-    <Compile Include="CalenderItems.cs">
-      <DependentUpon>Calender.tt</DependentUpon>
+    <Compile Include="Calendar.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
     </Compile>
-    <Compile Include="Categories.cs">
-      <DependentUpon>Calender.tt</DependentUpon>
+    <Compile Include="Category.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
     </Compile>
-    <Compile Include="CategoryTeams.cs">
-      <DependentUpon>Calender.tt</DependentUpon>
+    <Compile Include="CategoryCalendar.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
     </Compile>
-    <Compile Include="Countries.cs">
-      <DependentUpon>Calender.tt</DependentUpon>
+    <Compile Include="Club.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
     </Compile>
-    <Compile Include="CustomCalendar.cs" />
+    <Compile Include="ClubAlias.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Division.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Game.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Seasons.cs">
-      <DependentUpon>Calender.tt</DependentUpon>
+    <Compile Include="ScoreTable.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
     </Compile>
-    <Compile Include="TeamAddresses.cs">
-      <DependentUpon>Calender.tt</DependentUpon>
+    <Compile Include="ScoreTableLine.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
     </Compile>
-    <Compile Include="Teams.cs">
-      <DependentUpon>Calender.tt</DependentUpon>
+    <Compile Include="Season.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Team.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeamClub.cs">
+      <DependentUpon>AntwerpRC.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-    <EntityDeploy Include="Calender.edmx">
+    <EntityDeploy Include="AntwerpRC.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Calender.Designer.cs</LastGenOutput>
+      <LastGenOutput>AntwerpRC.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Calender.Context.tt">
+    <None Include="AntwerpRC.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Calender.edmx</DependentUpon>
-      <LastGenOutput>Calender.Context.cs</LastGenOutput>
+      <DependentUpon>AntwerpRC.edmx</DependentUpon>
+      <LastGenOutput>AntwerpRC.Context.cs</LastGenOutput>
     </None>
-    <None Include="Calender.edmx.diagram">
-      <DependentUpon>Calender.edmx</DependentUpon>
+    <None Include="AntwerpRC.edmx.diagram">
+      <DependentUpon>AntwerpRC.edmx</DependentUpon>
     </None>
-    <None Include="Calender.tt">
+    <None Include="AntwerpRC.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Calender.edmx</DependentUpon>
-      <LastGenOutput>Calender.cs</LastGenOutput>
+      <DependentUpon>AntwerpRC.edmx</DependentUpon>
+      <LastGenOutput>AntwerpRC.cs</LastGenOutput>
     </None>
+    <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

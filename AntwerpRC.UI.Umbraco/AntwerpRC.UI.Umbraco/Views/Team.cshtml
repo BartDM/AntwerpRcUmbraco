@@ -1,27 +1,118 @@
 ﻿@using Umbraco.Core;
-@using Umbraco.Core.Models;
-@using Umbraco.Core.Services;
-@using umbraco.presentation.install.utills
+@using System.Web.Optimization
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "PageBase.cshtml";
 }
 
-<h1>@Umbraco.Field("pageTitle")</h1>
-<p>@Umbraco.Field("pageContent")</p>
-	
-	@Umbraco.Field("teamName")
-	
-	@Umbraco.Field("teamDescription")
-@{
-    var service = ApplicationContext.Current.Services.ContentService;
+@section head
+{
 
-    foreach (var id in CurrentPage.teamContacts)
-    {
-        var contact = Umbraco.Content(id.InnerText);
-        <p>@contact["contactFirstName"]</p>
-        <p>@contact["contactLastName"]</p>
-        <p>@contact["contactTitle"]</p>
-    }
-}  
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jquery-sliders")
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.bxslider').bxSlider({
+                minSlides: 5,
+                maxSlides: 5,
+                slideWidth: 400,
+                slideMargin: 15,
+                controls: false,
+                auto: true,
+                speed: 5000,
+                randomStart: false,
+                infiniteLoop: true,
+                preloadImages: 'all',
+                autoHover: true,
+                onSliderLoad: function () {
+                    $('.bxslider img').hover(function () {
+                        var imgSrc = $(this).attr("data-img-src-color");
+                        $(this).attr("src", imgSrc);
+                        if (this.complete) {
+                            $(this).trigger('load');
+                        }
+                    }, function () {
+                        var imgSrc = $(this).attr("data-img-src-bw");
+                        $(this).attr("src", imgSrc);
+                        if (this.complete) {
+                            $(this).trigger('load');
+                        }
+                    });
+                }
+            });
+        });
+
+    </script>
+
+}
+@section Slider
+{
+}
+
+<div class="team">
+    <div class="row-fluid">
+        <div class="span8 text-content">
+            <div class="headline">
+                <h3>@CurrentPage.teamName</h3>
+            </div>
+            @CurrentPage.teamDescription
+        </div>
+        <div class="span4 calendar">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="headline">
+                        <h3>Voor wie</h3>
+                    </div>
+                    <p>@CurrentPage.teamForWho</p>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    @Umbraco.RenderMacro("GetCalendarTeam")
+                </div>
+            </div>
+            @Umbraco.RenderMacro("GetTrainingsTeam")
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="headline">
+                        <h3>Contact</h3>
+                    </div>
+                    @{
+                        var service = ApplicationContext.Current.Services.ContentService;
+
+                        foreach (var id in CurrentPage.teamContacts)
+                        {
+                            var contact = Umbraco.Content(id.InnerText);
+                            <address>
+                                <strong>@contact["contactFirstName"] @contact["contactLastName"]</strong><br />
+                                @contact["contactTitle"]<br />
+                                @contact["contactEmail"]<br />
+                                @contact["contactTel"]
+                            </address>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        @Umbraco.RenderMacro("GetNewsTeam")
+    </div>
+    <div class="row-fluid">
+        @Umbraco.RenderMacro("GetResultsTeam")
+        @{ Html.RenderAction("GetScoreForTeam", "Score", new { teamId = CurrentPage.teamId }); }
+
+@*        @Umbraco.RenderMacro("GetRankingTeam")*@
+    </div>
+    <div class="row-fluid">
+        <div class="headline">
+            <h3>Foto's'</h3>
+        </div>
+        <p>TODO: nog verder te bekijken</p>
+    </div>
+    @Umbraco.RenderMacro("GetSponsorsHomePage")
+</div>

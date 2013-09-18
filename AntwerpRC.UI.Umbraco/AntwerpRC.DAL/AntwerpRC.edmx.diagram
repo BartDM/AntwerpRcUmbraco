@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6f51da4d46bf446fa9475721def68361" Name="Diagram1">
+        <EntityTypeShape EntityType="AntwerpRCModel.Address" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AntwerpRCModel.Calendar" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AntwerpRCModel.Category" Width="1.5" PointX="1.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AntwerpRCModel.CategoryCalendar" Width="1.5" PointX="3.75" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AntwerpRCModel.Club" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AntwerpRCModel.ClubAlias" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AntwerpRCModel.Country" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AntwerpRCModel.Division" Width="1.5" PointX="1.5" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AntwerpRCModel.Game" Width="1.5" PointX="11.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AntwerpRCModel.Season" Width="1.5" PointX="1.5" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AntwerpRCModel.Team" Width="1.5" PointX="3.75" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="AntwerpRCModel.TeamClub" Width="1.5" PointX="6" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="AntwerpRCModel.FK_Address_Club" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_Address_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_Calendar_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_Game_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_Calendar_Game" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_CategoryCalendar_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_Team_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_ClubAlias_Club" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_TeamClub_Club" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_Team_Division" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_Game_TeamClub1" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_Game_TeamClub2" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_Team_Season" ManuallyRouted="false" />
+        <AssociationConnector Association="AntwerpRCModel.FK_TeamClub_Category" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AntwerpRCModel.ScoreTable" Width="1.5" PointX="11.932606223939269" PointY="2.61474564793275" />
+        <EntityTypeShape EntityType="AntwerpRCModel.ScoreTableLine" Width="1.5" PointX="1.9724407652264651" PointY="5.7070959833018" />
+        <AssociationConnector Association="AntwerpRCModel.FK_ScoreTable_Team" />
+        <AssociationConnector Association="AntwerpRCModel.FK_ScoreTableLine_ScoreTable" />
+        <AssociationConnector Association="AntwerpRCModel.FK_ScoreTableLine_TeamClub" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

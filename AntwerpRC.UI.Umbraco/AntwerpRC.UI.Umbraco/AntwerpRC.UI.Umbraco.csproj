@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\UmbracoCms.6.1.3\build\net40\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.6.1.3\build\net40\UmbracoCms.props')" />
+  <Import Project="..\packages\UmbracoCms.6.1.5\build\net45\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.6.1.5\build\net45\UmbracoCms.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,12 +14,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AntwerpRC.UI.Umbraco</RootNamespace>
     <AssemblyName>AntwerpRC.UI.Umbraco</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,14 +39,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="businesslogic, Version=1.0.4954.19343, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="businesslogic, Version=1.0.4993.19247, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\businesslogic.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\businesslogic.dll</HintPath>
     </Reference>
     <Reference Include="ClientDependency.Core, Version=1.7.0.4, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -53,13 +62,13 @@
     <Reference Include="ClientDependency.Core.Mvc">
       <HintPath>..\packages\ClientDependency-Mvc.1.7.0.4\lib\ClientDependency.Core.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="cms, Version=1.0.4954.19343, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="cms, Version=1.0.4993.19248, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\cms.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\cms.dll</HintPath>
     </Reference>
-    <Reference Include="controls, Version=1.0.4954.19344, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="controls, Version=1.0.4993.19249, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\controls.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\controls.dll</HintPath>
     </Reference>
     <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -68,12 +77,13 @@
     <Reference Include="dotless.Core">
       <HintPath>..\packages\dotless.1.3.1.0\lib\dotless.Core.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="Examine, Version=0.1.51.2941, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Examine.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Examine, Version=0.1.52.2941, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\Examine.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -83,13 +93,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="interfaces, Version=1.0.4954.19342, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="interfaces, Version=1.0.4993.19246, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\interfaces.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\interfaces.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\log4net.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Lucene.Net, Version=2.9.4.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -97,12 +107,12 @@
     </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=1.0.1559.20655, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Microsoft.Web.Helpers.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\Microsoft.Web.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -123,27 +133,29 @@
     </Reference>
     <Reference Include="Our.Umbraco.uGoLive, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Our.Umbraco.uGoLive.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\Our.Umbraco.uGoLive.dll</HintPath>
     </Reference>
     <Reference Include="Our.Umbraco.uGoLive.47x, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Our.Umbraco.uGoLive.47x.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\Our.Umbraco.uGoLive.47x.dll</HintPath>
     </Reference>
     <Reference Include="Our.Umbraco.uGoLive.Checks, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Our.Umbraco.uGoLive.Checks.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\Our.Umbraco.uGoLive.Checks.dll</HintPath>
     </Reference>
-    <Reference Include="SQLCE4Umbraco, Version=1.0.4954.19344, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SQLCE4Umbraco, Version=1.0.4993.19248, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\SQLCE4Umbraco.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\SQLCE4Umbraco.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\System.Data.SqlServerCe.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\System.Data.SqlServerCe.Entity.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\System.Data.SqlServerCe.Entity.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
@@ -160,8 +172,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -196,60 +206,60 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="TidyNet, Version=1.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\TidyNet.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\TidyNet.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco, Version=1.0.4954.19345, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="umbraco, Version=1.0.4993.19250, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\umbraco.dll</HintPath>
     </Reference>
-    <Reference Include="Umbraco.Core, Version=1.0.4954.19342, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Umbraco.Core, Version=1.0.4993.19246, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Umbraco.Core.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\Umbraco.Core.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco.DataLayer, Version=1.0.4954.19343, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="umbraco.DataLayer, Version=1.0.4993.19247, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.DataLayer.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\umbraco.DataLayer.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco.editorControls, Version=1.0.4954.19346, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="umbraco.editorControls, Version=1.0.4993.19251, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.editorControls.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\umbraco.editorControls.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco.MacroEngines, Version=1.0.4954.19346, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="umbraco.MacroEngines, Version=1.0.4993.19251, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.MacroEngines.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\umbraco.MacroEngines.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco.macroRenderings, Version=1.0.4954.19344, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="umbraco.macroRenderings, Version=1.0.4993.19249, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.macroRenderings.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\umbraco.macroRenderings.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco.providers, Version=1.0.4954.19344, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="umbraco.providers, Version=1.0.4993.19249, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.providers.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\umbraco.providers.dll</HintPath>
     </Reference>
-    <Reference Include="Umbraco.Web.UI, Version=1.0.4954.19346, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Umbraco.Web.UI, Version=1.0.4993.19252, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Umbraco.Web.UI.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\Umbraco.Web.UI.dll</HintPath>
     </Reference>
-    <Reference Include="umbraco.XmlSerializers, Version=1.0.4954.19345, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="umbraco.XmlSerializers, Version=1.0.4993.19250, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.XmlSerializers.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\umbraco.XmlSerializers.dll</HintPath>
     </Reference>
-    <Reference Include="UmbracoExamine, Version=0.6.0.19343, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UmbracoExamine, Version=0.6.0.19248, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\UmbracoExamine.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\UmbracoExamine.dll</HintPath>
     </Reference>
     <Reference Include="UrlRewritingNet.UrlRewriter, Version=2.0.60829.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\UrlRewritingNet.UrlRewriter.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\UrlRewritingNet.UrlRewriter.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
@@ -371,12 +381,13 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="css\dummy.txt" />
     <Content Include="default.aspx" />
+    <Content Include="macroScripts\dummy.txt" />
     <Content Include="masterpages\dummy.txt" />
     <Content Include="media\dummy.txt" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
-    <Content Include="scripts\dummy.txt" />
     <Content Include="Content\less\wells.less" />
     <Content Include="Content\less\variables.less" />
     <Content Include="Content\less\utilities.less" />
@@ -447,36 +458,15 @@
     <Content Include="macroScripts\GetNewsHomepage.cshtml" />
     <Content Include="macroScripts\GetResultsHomepage.cshtml" />
     <Content Include="macroScripts\GetRankingHomepage.cshtml" />
-    <None Include="Properties\PublishProfiles\Azure.pubxml" />
-    <None Include="scripts\jquery-2.0.3.intellisense.js" />
-    <Content Include="scripts\homepage.js" />
-    <Content Include="scripts\jquery-2.0.3.js" />
-    <Content Include="scripts\jquery-2.0.3.min.js" />
-    <Content Include="scripts\jquery-ui-1.10.3.js" />
-    <Content Include="scripts\jquery-ui-1.10.3.min.js" />
-    <Content Include="scripts\jquery.bxslider.js" />
-    <Content Include="scripts\jquery.bxslider.min.js" />
-    <Content Include="scripts\jquery.cslider.js" />
-    <Content Include="scripts\less.min.js" />
-    <Content Include="scripts\modernizr-2.6.2.js" />
-    <Content Include="usercontrols\dummy.txt" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Helpers\LessTransform.cs" />
-    <Compile Include="Helpers\MyGlobal.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
-    <Content Include="Views\Web.config" />
+    <Content Include="macroScripts\GetCalendarTeam.cshtml" />
+    <Content Include="macroScripts\GetNewsTeam.cshtml" />
+    <Content Include="macroScripts\GetRankingTeam.cshtml" />
+    <Content Include="macroScripts\GetResultsTeam.cshtml" />
+    <Content Include="macroScripts\GetTrainingsTeam.cshtml" />
     <Content Include="config\umbracoSettings.config" />
     <Content Include="config\trees.config" />
-    <Content Include="config\applications.config" />
     <Content Include="config\ClientDependency.config" />
+    <Content Include="config\applications.config" />
     <Content Include="config\xsltExtensions.config" />
     <Content Include="config\UrlRewriting.config" />
     <Content Include="config\tinyMceConfig.config" />
@@ -495,6 +485,35 @@
     <Content Include="config\404handlers.config" />
     <Content Include="bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <Content Include="bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <None Include="Properties\PublishProfiles\Azure.pubxml" />
+    <None Include="scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="scripts\dummy.txt" />
+    <Content Include="scripts\homepage.js" />
+    <Content Include="scripts\jquery-2.0.3.js" />
+    <Content Include="scripts\jquery-2.0.3.min.js" />
+    <Content Include="scripts\jquery-ui-1.10.3.js" />
+    <Content Include="scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="scripts\jquery.bxslider.js" />
+    <Content Include="scripts\jquery.bxslider.min.js" />
+    <Content Include="scripts\jquery.cslider.js" />
+    <Content Include="scripts\less.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="usercontrols\dummy.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xslt\dummy.txt" />
+    <Content Include="xslt\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Helpers\LessTransform.cs" />
+    <Compile Include="Helpers\MyGlobal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Views\Web.config" />
     <Content Include="Views\PageBase.cshtml" />
     <Content Include="scripts\jquery-2.0.3.min.map" />
     <Content Include="Views\HomePage.cshtml" />
@@ -506,11 +525,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="xslt\dummy.txt" />
-    <Content Include="xslt\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="css\" />
+    <ProjectReference Include="..\AntwerpRC.BLL\AntwerpRC.BLL.csproj">
+      <Project>{7e16489f-8754-47c4-a37a-353b5f7a3419}</Project>
+      <Name>AntwerpRC.BLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -537,7 +557,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="..\packages\UmbracoCms.6.1.3\build\net40\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.6.1.3\build\net40\UmbracoCms.targets')" />
+  <Import Project="..\packages\UmbracoCms.6.1.5\build\net45\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.6.1.5\build\net45\UmbracoCms.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

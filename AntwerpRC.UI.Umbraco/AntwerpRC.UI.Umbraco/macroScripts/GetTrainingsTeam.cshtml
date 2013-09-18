@@ -1,0 +1,27 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+    var trainings = Model.Descendants("Training");
+}
+<div>
+@if (trainings.Any())
+{
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="headline">
+                <h3>Trainingen</h3>
+            </div>
+
+            @foreach (dynamic training in trainings)
+            {
+                var location = Model.NodeById(training.TrainingLocation);
+                
+                <strong>@training.TrainingDay</strong>
+                <p>van @training.TrainingStartHour tot @training.TrainingEndHour</p>
+                <p>Op het terrein aan de <a href="#">@location.LocationName</a></p>
+            }
+
+        </div>
+    </div>
+}
+</div>

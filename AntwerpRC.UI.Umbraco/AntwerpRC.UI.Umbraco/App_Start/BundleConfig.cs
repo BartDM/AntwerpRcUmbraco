@@ -29,7 +29,7 @@ namespace AntwerpRC.UI.Umbraco
             bundles.Add(new ScriptBundle("~/bundles/boot.js").Include(
                         "~/Scripts/bootstrap.min.js"));
 
-            var lessBundle = new Bundle("~/Content/boot").Include("~/Content/less/bootstrap.less");
+            var lessBundle = new Bundle("~/Content/boot").Include("~/Content/less/bootstrap.css");
             lessBundle.Transforms.Add(new LessTransform());
             lessBundle.Transforms.Add(new CssMinify());
             bundles.Add(lessBundle);

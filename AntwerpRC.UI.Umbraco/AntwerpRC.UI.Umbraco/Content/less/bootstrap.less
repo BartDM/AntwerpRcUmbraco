@@ -139,7 +139,6 @@ header {
     background-image: url('../images/slider-background.jpg');
     background-position: center 0;
     background-repeat: no-repeat;
-
 }
 
 html, body {
@@ -485,10 +484,67 @@ h1, h2, h3 {
     }
 }
 
-.results{
-    td.arc{color:@arcRed;}
-    td.winner{font-weight:bold;}
-    th.center{text-align:center;}
-    tr td:nth-child(5),tr td:nth-child(6),tr td:nth-child(7),tr td:nth-child(8) {text-align:center;}
+.results {
+    .arc {
+        color: @arcRed;
+    }
+
+    td.winner {
+        font-weight: bold;
+    }
+
+    th.center {
+        text-align: center;
+    }
+
+    tr td:nth-child(n+4),tr th:nth-child(n+4) {
+        text-align: center;
+    }
 }
-.sponsorItem { float: left; width: 142px; margin-left:10px;}
+
+.ranking {
+    tr td:nth-child(n+3) {
+        text-align: center;
+    }
+
+    tr th:nth-child(n+3) {
+        text-align: center;
+    }
+}
+
+.sponsorItem {
+    float: left;
+    width: 142px;
+    margin-left: 10px;
+}
+
+/*Team page*/
+.banner {
+    background: url('../images/banner-background.png') center 0 no-repeat;
+    height: 200px;
+}
+
+.banner-image {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.team .ranking {
+    tr td:nth-child(n+1) {
+        text-align: center;
+    }
+
+    tr th:nth-child(n+1) {
+        text-align: center;
+    }
+
+    .arc {
+        background-color: lighten(@hoverColor,50);
+    }
+
+    small {
+        margin-left: 10px;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+}

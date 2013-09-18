@@ -16,9 +16,8 @@ namespace AntwerpRC.DAL
     {
         public Address()
         {
-            this.CalenderItems = new HashSet<CalenderItems>();
-            this.CalenderItems1 = new HashSet<CalenderItems>();
-            this.TeamAddresses = new HashSet<TeamAddresses>();
+            this.Calendar = new HashSet<Calendar>();
+            this.Game = new HashSet<Game>();
         }
     
         public long AddressId { get; set; }
@@ -28,14 +27,18 @@ namespace AntwerpRC.DAL
         public string City { get; set; }
         public Nullable<long> CountryId { get; set; }
         public bool AuditDeleted { get; set; }
-        public int AuditCreatedBy { get; set; }
+        public string AuditCreatedBy { get; set; }
         public System.DateTime AuditCreatedOn { get; set; }
-        public Nullable<int> AuditModifiedBy { get; set; }
+        public string AuditModifiedBy { get; set; }
         public Nullable<System.DateTime> AuditModifiedOn { get; set; }
+        public Nullable<decimal> Longitude { get; set; }
+        public Nullable<decimal> Lattitude { get; set; }
+        public long ClubId { get; set; }
+        public string Description { get; set; }
     
-        public virtual Countries Countries { get; set; }
-        public virtual ICollection<CalenderItems> CalenderItems { get; set; }
-        public virtual ICollection<CalenderItems> CalenderItems1 { get; set; }
-        public virtual ICollection<TeamAddresses> TeamAddresses { get; set; }
+        public virtual Club Club { get; set; }
+        public virtual Country Country { get; set; }
+        public virtual ICollection<Calendar> Calendar { get; set; }
+        public virtual ICollection<Game> Game { get; set; }
     }
 }

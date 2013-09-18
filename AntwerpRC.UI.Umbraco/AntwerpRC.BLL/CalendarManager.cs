@@ -8,28 +8,28 @@ namespace AntwerpRC.BLL
 {
     public class CalendarManager
     {
-        public List<CalenderOverviewItem> GetCalendarItemsForMonth(int month, int year)
-        {
-            var dates = new List<CalenderOverviewItem>();
-            using (var context = new CalendarEntities())
-            {
-                IOrderedQueryable<CalenderItems> dalCalenderItems =
-                    context.CalenderItems.Where(
-                        c => !c.AuditDeleted && c.VisibleForPublic &&
-                             ((c.StartDate.Month == month && c.StartDate.Year == year) ||
-                              (c.EndDate.Month == month && c.EndDate.Year == year))).OrderBy(c => c.StartDate);
-                dalCalenderItems.ToList().ForEach(c => dates.Add((CalenderOverviewItem) c));
-            }
-
-            dates = ProcessForMonthCrossingItems(dates, month, year);
-            dates = ProcessForWeekCrossingItems(dates);
-            dates = AddPartInformation(dates);
-
-            //remove the parts that not will be displayed in this month
-            dates.RemoveAll(d => d.StartDate.Month != month && d.EndDate.Month != month);
-
-            return dates;
-        }
+//        public List<CalenderOverviewItem> GetCalendarItemsForMonth(int month, int year)
+//        {
+//            var dates = new List<CalenderOverviewItem>();
+//            using (var context = new CalendarEntities())
+//            {
+//                IOrderedQueryable<CalenderItems> dalCalenderItems =
+//                    context.CalenderItems.Where(
+//                        c => !c.AuditDeleted && c.VisibleForPublic &&
+//                             ((c.StartDate.Month == month && c.StartDate.Year == year) ||
+//                              (c.EndDate.Month == month && c.EndDate.Year == year))).OrderBy(c => c.StartDate);
+//                dalCalenderItems.ToList().ForEach(c => dates.Add((CalenderOverviewItem) c));
+//            }
+//
+//            dates = ProcessForMonthCrossingItems(dates, month, year);
+//            dates = ProcessForWeekCrossingItems(dates);
+//            dates = AddPartInformation(dates);
+//
+//            //remove the parts that not will be displayed in this month
+//            dates.RemoveAll(d => d.StartDate.Month != month && d.EndDate.Month != month);
+//
+//            return dates;
+//        }
 
         private List<BDO.CalenderOverviewItem> ProcessForMonthCrossingItems(List<BDO.CalenderOverviewItem> dates, int month, int year)
         {

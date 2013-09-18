@@ -6613,7 +6613,7 @@ h3 {
 .calendar .calendar-item .calendar-item-category {
   margin-left: 10px;
 }
-.results td.arc {
+.results .arc {
   color: #ab141d;
 }
 .results td.winner {
@@ -6622,14 +6622,41 @@ h3 {
 .results th.center {
   text-align: center;
 }
-.results tr td:nth-child(5),
-.results tr td:nth-child(6),
-.results tr td:nth-child(7),
-.results tr td:nth-child(8) {
+.results tr td:nth-child(n+4),
+.results tr th:nth-child(n+4) {
+  text-align: center;
+}
+.ranking tr td:nth-child(n+3) {
+  text-align: center;
+}
+.ranking tr th:nth-child(n+3) {
   text-align: center;
 }
 .sponsorItem {
   float: left;
   width: 142px;
   margin-left: 10px;
+}
+/*Team page*/
+.banner {
+  background: url('../images/banner-background.png') center 0 no-repeat;
+  height: 200px;
+}
+.banner-image {
+  text-align: center;
+  margin-top: 10px;
+}
+.team .ranking tr td:nth-child(n+1) {
+  text-align: center;
+}
+.team .ranking tr th:nth-child(n+1) {
+  text-align: center;
+}
+.team .ranking .arc {
+  background-color: #f8c6c9;
+}
+.team .ranking small {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  display: inline-block;
 }

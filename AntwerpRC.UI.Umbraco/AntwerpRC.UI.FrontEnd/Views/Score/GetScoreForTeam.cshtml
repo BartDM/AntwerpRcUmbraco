@@ -1,0 +1,174 @@
+﻿@using AntwerpRC.BDO
+@model ScoreTable
+
+@{
+    Layout = null;
+}
+
+<div class="span6 ranking">
+    <div class="headline">
+        <h3>Klassement</h3>
+    </div>
+@if (Model != null)
+{
+    <h4>@Model.Team.Division.Description</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>P</th>
+                <th>B</th>
+                <th>T</th>
+                <th>Wedstr</th>
+                <th>W</th>
+                <th>G</th>
+                <th>V</th>
+                <th>F</th>
+                <th>+</th>
+                <th>-</th>
+                <th>Rood</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.ScoreTableLines)
+            {
+                <tr>
+                    <td>@line.TeamName</td>
+                    <td>@line.Points</td>
+                    <td>@line.Bonus</td>
+                    <td>@line.TotalPoints</td>
+                    <td>@line.Games</td>
+                    <td>@line.Won</td>
+                    <td>@line.Draw</td>
+                    <td>@line.Lost</td>
+                    <td>@line.Forfait</td>
+                    <td>@line.PositivePoints</td>
+                    <td>@line.NegativePoints</td>
+                    <td>@line.RedCards</td>
+                </tr>
+            }
+            @*
+            <tr>
+                <td>Anderlecht</td>
+                <td>0</td>
+                <td>0</td>
+                <td><strong>0</strong></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+            </tr>
+            <tr class="arc">
+                <td>Antwerp</td>
+                <td>0</td>
+                <td>0</td>
+                <td><strong>0</strong></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>BUC</td>
+                <td>0</td>
+                <td>0</td>
+                <td><strong>0</strong></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>La Hulpe</td>
+                <td>0</td>
+                <td>0</td>
+                <td><strong>0</strong></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Leuven</td>
+                <td>0</td>
+                <td>0</td>
+                <td><strong>0</strong></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>ROC</td>
+                <td>0</td>
+                <td>0</td>
+                <td><strong>0</strong></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Schilde</td>
+                <td>0</td>
+                <td>0</td>
+                <td><strong>0</strong></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Visé</td>
+                <td>0</td>
+                <td>0</td>
+                <td><strong>0</strong></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+            </tr>
+*@
+        </tbody>
+    </table>
+    <small>P = points, B = bonus, T = totaal, W = win, G = gelijkspel, V = verloren, F = forfait, + = aantal punten gescoord over alle wedstrijden, - = aantal punten tegen over alle wedstrijden</small>
+    <small>Bron: <a href="#">Belgische Rugby Bond</a></small>
+}
+else
+{
+    <p>Geen ranking beschikbaar</p>
+}                                                 
+    </div >
+

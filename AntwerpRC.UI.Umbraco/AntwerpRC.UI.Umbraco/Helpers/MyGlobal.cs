@@ -12,6 +12,7 @@ namespace AntwerpRC.UI.Umbraco.Helpers
         {
             base.ApplicationStarting(umbracoApplication, applicationContext);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BLL.Helpers.AutoMapperMapping.CreateMappings();
         }
 
         protected override void ApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
