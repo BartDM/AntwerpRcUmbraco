@@ -460,7 +460,6 @@
     <Content Include="macroScripts\GetRankingHomepage.cshtml" />
     <Content Include="macroScripts\GetCalendarTeam.cshtml" />
     <Content Include="macroScripts\GetNewsTeam.cshtml" />
-    <Content Include="macroScripts\GetRankingTeam.cshtml" />
     <Content Include="macroScripts\GetResultsTeam.cshtml" />
     <Content Include="macroScripts\GetTrainingsTeam.cshtml" />
     <Content Include="config\umbracoSettings.config" />

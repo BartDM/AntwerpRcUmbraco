@@ -8,6 +8,7 @@
 <div class="span6 ranking">
     <div class="headline">
         <h3>Klassement</h3>
+
     </div>
 @if (Model != null)
 {
@@ -32,7 +33,12 @@
         <tbody>
             @foreach (var line in Model.ScoreTableLines)
             {
-                <tr>
+                var trClass = string.Empty;
+                if (line.HomeTeam)
+                {
+                    trClass = "arc";
+                }
+                <tr class="@trClass">
                     <td>@line.TeamName</td>
                     <td>@line.Points</td>
                     <td>@line.Bonus</td>
@@ -47,124 +53,10 @@
                     <td>@line.RedCards</td>
                 </tr>
             }
-            @*
-            <tr>
-                <td>Anderlecht</td>
-                <td>0</td>
-                <td>0</td>
-                <td><strong>0</strong></td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td>0</td>
-            </tr>
-            <tr class="arc">
-                <td>Antwerp</td>
-                <td>0</td>
-                <td>0</td>
-                <td><strong>0</strong></td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>BUC</td>
-                <td>0</td>
-                <td>0</td>
-                <td><strong>0</strong></td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>La Hulpe</td>
-                <td>0</td>
-                <td>0</td>
-                <td><strong>0</strong></td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>Leuven</td>
-                <td>0</td>
-                <td>0</td>
-                <td><strong>0</strong></td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>ROC</td>
-                <td>0</td>
-                <td>0</td>
-                <td><strong>0</strong></td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>Schilde</td>
-                <td>0</td>
-                <td>0</td>
-                <td><strong>0</strong></td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>Visé</td>
-                <td>0</td>
-                <td>0</td>
-                <td><strong>0</strong></td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td>0</td>
-            </tr>
-*@
         </tbody>
     </table>
     <small>P = points, B = bonus, T = totaal, W = win, G = gelijkspel, V = verloren, F = forfait, + = aantal punten gescoord over alle wedstrijden, - = aantal punten tegen over alle wedstrijden</small>
-    <small>Bron: <a href="#">Belgische Rugby Bond</a></small>
+    <small>Bron: <a href="http://www.rugby.be">Belgische Rugby Bond</a></small>
 }
 else
 {

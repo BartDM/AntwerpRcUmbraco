@@ -13,7 +13,9 @@ namespace AntwerpRC.BLL.Helpers
     {
         public static void CreateMappings()
         {
-            Mapper.CreateMap<DAL.ScoreTableLine, BDO.ScoreTableLine>().ForMember(dest=>dest.TeamName, map=>map.MapFrom(src=>src.TeamClub.Club.ClubName));
+            Mapper.CreateMap<DAL.ScoreTableLine, BDO.ScoreTableLine>().
+                ForMember(dest=>dest.TeamName, map=>map.MapFrom(src=>src.TeamClub.Club.ClubName)).
+                ForMember(dest=>dest.HomeTeam, map=>map.MapFrom(src=>src.TeamClub.Club.HomeClub));
             Mapper.CreateMap<DAL.Division, BDO.Division>();
             Mapper.CreateMap<DAL.Season, BDO.Season>();
             Mapper.CreateMap<DAL.Category, BDO.Category>();
@@ -28,7 +30,6 @@ namespace AntwerpRC.BLL.Helpers
             Mapper.CreateMap<DAL.ScoreTable, BDO.ScoreTable>().
                 ForMember(dest=>dest.ScoreTableLines, map=>map.MapFrom(src=>src.ScoreTableLine)).
                 ForMember(dest=>dest.Team, map=>map.MapFrom(src=>src.Team));
-            Mapper.CreateMap<BDO.TestMapper, BDO.TestMapperBis>();
             Mapper.AssertConfigurationIsValid();
 
         }
