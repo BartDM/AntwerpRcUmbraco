@@ -1,0 +1,101 @@
+﻿@model IEnumerable<AntwerpRC.BDO.ScoreTableOverview>
+
+<div class="span6 ranking">
+    <div class="headline">
+        <h3>Klassement</h3>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th><span>category</span></th>
+                <th><span>plaats</span></th>
+                <th><span>evolutie</span></th>
+                <th><span>punten</span></th>
+                <th><span>ploeg +</span></th>
+                <th><span>ploeg -</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var evolution = string.Empty;
+                if (item.Evolution==0)
+                {
+                    evolution = "--";
+                }
+                else if (item.Evolution > 0)
+                {
+                    evolution = "+" + item.Evolution;
+                }else
+                {
+                    evolution = item.Evolution.ToString();
+                }
+                <tr>
+                <td><a href="#">@item.Team.Category.Description</a></td>
+                <td>@item.Order</td>
+                <td>
+                    @evolution 
+                    @if (item.EvolutionDate.HasValue)
+                    {
+                        <span>(@item.EvolutionDate.Value.ToString("dd-MM-yyyy"))</span>
+                    }
+                </td>
+                <td>@item.Points</td>
+                <td>@item.TeamAbove</td>
+                <td>@item.TeamBelow</td>
+            </tr>
+            }
+
+@*            <tr>*@
+@*                <td><a href="#">Senioren</a></td>*@
+@*                <td>4</td>*@
+@*                <td>+1</td>*@
+@*                <td>30</td>*@
+@*                <td>La Hulpe (+2)</td>*@
+@*                <td>Anderlecht (-4)</td>*@
+@*            </tr>*@
+@*            <tr>*@
+@*                <td><a href="#">Senioren 2</a></td>*@
+@*                <td>2</td>*@
+@*                <td>+2</td>*@
+@*                <td>25</td>*@
+@*                <td>La Hulpe (+2)</td>*@
+@*                <td>Anderlecht (-4)</td>*@
+@*            </tr>*@
+@*            <tr>*@
+@*                <td><a href="#">Dames</a></td>*@
+@*                <td>2</td>*@
+@*                <td>+2</td>*@
+@*                <td>25</td>*@
+@*                <td>La Hulpe (+2)</td>*@
+@*                <td>Anderlecht (-4)</td>*@
+@*            </tr>*@
+@*            <tr>*@
+@*                <td><a href="#">U19</a></td>*@
+@*                <td>2</td>*@
+@*                <td>+2</td>*@
+@*                <td>25</td>*@
+@*                <td>La Hulpe (+2)</td>*@
+@*                <td>Anderlecht (-4)</td>*@
+@*            </tr>*@
+@*            <tr>*@
+@*                <td><a href="#">U17</a></td>*@
+@*                <td>2</td>*@
+@*                <td>+2</td>*@
+@*                <td>25</td>*@
+@*                <td>La Hulpe (+2)</td>*@
+@*                <td>Anderlecht (-4)</td>*@
+@*            </tr>*@
+@*            <tr>*@
+@*                <td><a href="#">U15</a></td>*@
+@*                <td>2</td>*@
+@*                <td>+2</td>*@
+@*                <td>25</td>*@
+@*                <td>La Hulpe (+2)</td>*@
+@*                <td>Anderlecht (-4)</td>*@
+@*            </tr>*@
+        </tbody>
+    </table>
+    <div class="pull-right"><a href="#">Bekijk het volledig klassement</a></div>
+</div>
+

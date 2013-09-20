@@ -86,9 +86,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\log4net.dll</HintPath>
+      <HintPath>..\packages\log4net handmatig\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Lucene.Net, Version=2.9.4.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -317,6 +317,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Score\GetScoreForTeam.cshtml" />
+    <Content Include="Views\Score\GetLatestScoresForTeam.cshtml" />
+    <Content Include="Views\Score\GetLatestScoresForOverview.cshtml" />
+    <Content Include="Views\Score\GetScoreForOverview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

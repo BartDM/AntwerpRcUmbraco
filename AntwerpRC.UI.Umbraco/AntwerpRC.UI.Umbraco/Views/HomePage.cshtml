@@ -58,12 +58,16 @@
     @Umbraco.RenderMacro("GetNewsHomepage")
 </div>
 <div class="row-fluid">
-	@Umbraco.RenderMacro("GetTweetsHomepage")
-	@Umbraco.RenderMacro("GetCalenderHomepage")
+    @Umbraco.RenderMacro("GetTweetsHomepage")
+    @Umbraco.RenderMacro("GetCalenderHomepage")
 </div>
 <div class="row-fluid">
-    @Umbraco.RenderMacro("GetResultsHomepage")
-    @Umbraco.RenderMacro("GetRankingHomepage")
+    @{ Html.RenderAction("GetLatestScoresForOverview", "Score"); }
+
+    @*    @Umbraco.RenderMacro("GetResultsHomepage")*@
+@*    @Umbraco.RenderMacro("GetRankingHomepage")*@
+    @{ Html.RenderAction("GetScoreForOverview", "Score"); }
+
 </div>
 
 @Umbraco.RenderMacro("GetSponsorsHomePage")

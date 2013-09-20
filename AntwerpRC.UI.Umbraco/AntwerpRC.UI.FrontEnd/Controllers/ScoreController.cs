@@ -22,5 +22,23 @@ namespace AntwerpRC.UI.FrontEnd.Controllers
             var model = scoreManager.GetScoreTableForTeam(teamId);
             return PartialView(model);
         }
+
+        public ActionResult GetScoreForOverview()
+        {
+            var model = scoreManager.GetScoreTableForOverview();
+            return PartialView(model);
+        }
+
+        public ActionResult GetLatestScoresForTeam(int teamId)
+        {
+            var model = scoreManager.GetLatestResultsForTeam(teamId);
+            return PartialView(model);
+        }
+
+        public ActionResult GetLatestScoresForOverview()
+        {
+            var model = scoreManager.GetLatestResultsForOverview();
+            return PartialView(model);
+        }
     }
 }

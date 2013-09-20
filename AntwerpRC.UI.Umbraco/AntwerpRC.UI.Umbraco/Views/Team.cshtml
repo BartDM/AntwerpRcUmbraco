@@ -103,10 +103,9 @@
         @Umbraco.RenderMacro("GetNewsTeam")
     </div>
     <div class="row-fluid">
-        @Umbraco.RenderMacro("GetResultsTeam")
+        @{ Html.RenderAction("GetLatestScoresForTeam", "Score", new { teamId = CurrentPage.teamId }); }
         @{ Html.RenderAction("GetScoreForTeam", "Score", new { teamId = CurrentPage.teamId }); }
 
-@*        @Umbraco.RenderMacro("GetRankingTeam")*@
     </div>
     <div class="row-fluid">
         <div class="headline">

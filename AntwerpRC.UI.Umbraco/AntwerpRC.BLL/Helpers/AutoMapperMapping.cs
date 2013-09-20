@@ -19,7 +19,10 @@ namespace AntwerpRC.BLL.Helpers
             Mapper.CreateMap<DAL.Division, BDO.Division>();
             Mapper.CreateMap<DAL.Season, BDO.Season>();
             Mapper.CreateMap<DAL.Category, BDO.Category>();
-            Mapper.CreateMap<DAL.Team, BDO.Team>();
+            Mapper.CreateMap<DAL.Team, BDO.Team>().
+                ForMember(dest=>dest.Category, map=>map.MapFrom(src=>src.Category)).
+                ForMember(dest=>dest.Season, map=>map.MapFrom(src=>src.Season)).
+                ForMember(dest=>dest.Division, map=>map.MapFrom(src=>src.Division));
             Mapper.CreateMap<DAL.TeamClub, BDO.Team>().
                 ForMember(dest=>dest.Category, map=>map.MapFrom(src=>src.Team.Category)).
                 ForMember(dest=>dest.Season, map=>map.MapFrom(src=>src.Team.Season)).
@@ -30,6 +33,25 @@ namespace AntwerpRC.BLL.Helpers
             Mapper.CreateMap<DAL.ScoreTable, BDO.ScoreTable>().
                 ForMember(dest=>dest.ScoreTableLines, map=>map.MapFrom(src=>src.ScoreTableLine)).
                 ForMember(dest=>dest.Team, map=>map.MapFrom(src=>src.Team));
+
+            Mapper.CreateMap<DAL.Game, BDO.GameResult>().
+                ForMember(dest => dest.Team1Name, map => map.MapFrom(src => src.TeamClub.Club.ClubName)).
+                ForMember(dest => dest.Team2Name, map => map.MapFrom(src => src.TeamClub1.Club.ClubName)).
+                ForMember(dest => dest.HomeTeam,
+                    map =>
+                        map.MapFrom(
+                            src => src.TeamClub.Club.HomeClub ? BDO.GameResult.Teams.Team1 : BDO.GameResult.Teams.Team2))
+                .
+                ForMember(dest => dest.Team1Score, map => map.MapFrom(src => src.TeamClub1Score)).
+                ForMember(dest => dest.Team2Score, map => map.MapFrom(src => src.TeamClub2Score)).
+                ForMember(dest => dest.Team1Tries, map => map.MapFrom(src => src.TeamClub1Tries)).
+                ForMember(dest => dest.Team2Tries, map => map.MapFrom(src => src.TeamClub2Tries)).
+                ForMember(dest => dest.Team, opt => opt.Ignore()).
+                ForMember(dest => dest.Bonus, opt => opt.Ignore()).
+                ForMember(dest=>dest.Winner, opt=>opt.Ignore());
+            
+
+
             Mapper.AssertConfigurationIsValid();
 
         }

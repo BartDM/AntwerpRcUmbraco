@@ -1,4 +1,6 @@
-﻿using System.Web.Optimization;
+﻿using System.Globalization;
+using System.Threading;
+using System.Web.Optimization;
 using umbraco.BusinessLogic;
 using umbraco.cms.businesslogic;
 using umbraco.cms.businesslogic.web;
@@ -13,6 +15,9 @@ namespace AntwerpRC.UI.Umbraco.Helpers
             base.ApplicationStarting(umbracoApplication, applicationContext);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             BLL.Helpers.AutoMapperMapping.CreateMappings();
+
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("nl-BE");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("nl-BE");
         }
 
         protected override void ApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)

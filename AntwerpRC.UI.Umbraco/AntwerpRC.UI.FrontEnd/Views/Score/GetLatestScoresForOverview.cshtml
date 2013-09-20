@@ -1,0 +1,66 @@
+﻿@model IEnumerable<AntwerpRC.BDO.GameResult>
+
+<div class="span6 results">
+    <div class="headline">
+        <h3>Laatste resultaten competitie</h3>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Team</th>
+                <th colspan="2"></th>
+                <th colspan="2">Score</th>
+                <th colspan="2">tries</th>
+                <th>bonus</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    var tdClassTeam1 = string.Empty;
+                    var tdClassTeam2 = string.Empty;
+                    var tdClassScore1 = string.Empty;
+                    var tdClassScore2 = string.Empty;
+
+                    if (item.Winner == AntwerpRC.BDO.GameResult.Teams.Team1)
+                    {
+                        tdClassTeam1 += " winner";
+                        tdClassScore1 += " winner";
+                    }
+                    if (item.Winner == AntwerpRC.BDO.GameResult.Teams.Team2)
+                    {
+                        tdClassTeam2 += " winner";
+                        tdClassScore2 += " winner";
+                    }
+                    if (item.HomeTeam == AntwerpRC.BDO.GameResult.Teams.Team1)
+                    {
+                        tdClassTeam1 += " arc";
+                    }
+                    if (item.HomeTeam == AntwerpRC.BDO.GameResult.Teams.Team2)
+                    {
+                        tdClassTeam2 += " arc";
+                    }
+                    <tr>
+                        <td>@item.Date.ToString("dd-MM-yyyy")</td>
+                        <td>@item.Team.Category.Description</td>
+                        <td class="@tdClassTeam1">@item.Team1Name</td>
+                        <td class="@tdClassTeam2">@item.Team2Name</td>
+                        <td class="@tdClassScore1">@item.Team1Score</td>
+                        <td class="@tdClassScore2">@item.Team2Score</td>
+                        <td>@item.Team1Tries</td>
+                        <td>@item.Team2Tries</td>
+                        <td>@item.Bonus</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <td colspan="9">Nog geen resultaten bekend</td>
+            }
+        </tbody>
+    </table>
+    <div class="pull-right"><a href="#">Bekijk het volledig klassement</a></div>
+</div>

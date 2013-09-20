@@ -6632,6 +6632,9 @@ h3 {
 .ranking tr th:nth-child(n+3) {
   text-align: center;
 }
+.ranking tr td span {
+  font-size: 0.8em;
+}
 .sponsorItem {
   float: left;
   width: 142px;
