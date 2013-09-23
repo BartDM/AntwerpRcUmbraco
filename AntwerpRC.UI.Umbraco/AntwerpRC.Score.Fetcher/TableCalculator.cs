@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,10 +38,35 @@ namespace AntwerpRC.Score.Fetcher
                         SelfCalculated = true,
                         CreatedOn = DateTime.Now
                     };
-                    team.ScoreTable.Add(table);
-                    context.SaveChanges();
+                    //team.ScoreTable.Add(table);
+                    //context.SaveChanges();
 
-                    LoadTableForTeam(team, table, context, user);
+                    var lines = LoadTableForTeam(team, table, context, user);
+
+                    //Get the last table and compare
+                    bool saveNewTable = true;
+                    var oldTable =
+                        context.ScoreTable.AsNoTracking().OrderByDescending(t => t.CreatedOn)
+                            .FirstOrDefault(t => t.TeamId == team.TeamId);
+                    if (oldTable != null)
+                    {
+                        if (table.Equals(oldTable))
+                        {
+                            saveNewTable = false;
+                        }
+                    }
+                    if (saveNewTable)
+                    {
+                        table.ScoreTableLine.Clear();
+                        context.ScoreTable.Add(table);
+                        context.SaveChanges();
+                        foreach (var scoreTableLine in lines)
+                        {
+                            scoreTableLine.ScoreTable = table;
+                            context.ScoreTableLine.Add(scoreTableLine);
+                            context.SaveChanges();
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -49,10 +75,12 @@ namespace AntwerpRC.Score.Fetcher
             }
         }
 
-        private void LoadTableForTeam(Team team, DAL.ScoreTable table, DAL.AntwerpRCEntities context, string user)
+        private ICollection<ScoreTableLine> LoadTableForTeam(Team team, DAL.ScoreTable table, DAL.AntwerpRCEntities context, string user)
         {
             try
             {
+                var returnLines = new List<ScoreTableLine>();
+
                 var teamClubs = team.TeamClub.Where(tc => !tc.AuditDeleted);
                 foreach (var teamClub in teamClubs)
                 {
@@ -183,8 +211,10 @@ namespace AntwerpRC.Score.Fetcher
                     }
                     tableLine.TotalPoints = tableLine.Points + tableLine.Bonus;
                     table.ScoreTableLine.Add(tableLine);
+                    tableLine.ScoreTable = table;
+                    returnLines.Add(tableLine);
                 }
-                context.SaveChanges();
+                return returnLines;
             }
             catch (Exception ex)
             {

@@ -107,7 +107,6 @@ namespace AntwerpRC.BLL
                                     {
                                         bdo.TeamBelow = string.Empty;
                                     }
-
                                 }
                             }
                             //Find hometeam in second table to calculate evolution

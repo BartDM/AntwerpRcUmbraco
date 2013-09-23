@@ -96,6 +96,8 @@
     <Compile Include="Game.cs">
       <DependentUpon>AntwerpRC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partials\ScoreTable.cs" />
+    <Compile Include="Partials\ScoreTableLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScoreTable.cs">
       <DependentUpon>AntwerpRC.tt</DependentUpon>
