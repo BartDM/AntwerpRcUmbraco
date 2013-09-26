@@ -48,6 +48,7 @@ namespace AntwerpRC.BLL.Helpers
                 ForMember(dest => dest.Team2Tries, map => map.MapFrom(src => src.TeamClub2Tries)).
                 ForMember(dest => dest.Team, opt => opt.Ignore()).
                 ForMember(dest => dest.Bonus, opt => opt.Ignore()).
+                ForMember(dest => dest.TeamUrl, opt => opt.Ignore()).
                 ForMember(dest=>dest.Winner, opt=>opt.Ignore());
             
 

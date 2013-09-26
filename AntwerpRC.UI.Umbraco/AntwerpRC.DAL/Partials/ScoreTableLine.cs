@@ -11,20 +11,22 @@ namespace AntwerpRC.DAL
     {
         protected bool Equals(ScoreTableLine other)
         {
-            var a = Points == other.Points && 
-                Bonus == other.Bonus && 
-                TotalPoints == other.TotalPoints && 
-                Games == other.Games && 
-                Won == other.Won && 
-                Draw == other.Draw && 
-                Lost == other.Lost && 
-                Forfait == other.Forfait && 
-                PositivePoints == other.PositivePoints && 
-                NegativePoints == other.NegativePoints && 
-                RedCards == other.RedCards && 
-                TeamclubId == other.TeamclubId && 
-                //Equals(TeamClub, other.TeamClub) &&
-                AuditDeleted.Equals(other.AuditDeleted);
+            var a = Points == other.Points &&
+                    Bonus == other.Bonus &&
+                    TotalPoints == other.TotalPoints &&
+                    Games == other.Games &&
+                    Won == other.Won &&
+                    Draw == other.Draw &&
+                    Lost == other.Lost &&
+                    Forfait == other.Forfait &&
+                    PositivePoints == other.PositivePoints &&
+                    NegativePoints == other.NegativePoints &&
+                    RedCards == other.RedCards &&
+                    TeamclubId == other.TeamclubId &&
+                    //Equals(TeamClub, other.TeamClub) &&
+                    AuditDeleted.Equals(other.AuditDeleted) &&
+                    Order == other.Order &&
+                    InternalOrder == other.InternalOrder;
             return a;
         }
 
@@ -55,6 +57,8 @@ namespace AntwerpRC.DAL
                 hashCode = (hashCode*397) ^ TeamclubId.GetHashCode();
                 hashCode = (hashCode*397) ^ (TeamClub != null ? TeamClub.GetHashCode() : 0);
                 hashCode = (hashCode*397) ^ AuditDeleted.GetHashCode();
+                hashCode = (hashCode*397) ^ Order.GetHashCode();
+                hashCode = (hashCode*397) ^ InternalOrder.GetHashCode();
                 return hashCode;
             }
         }

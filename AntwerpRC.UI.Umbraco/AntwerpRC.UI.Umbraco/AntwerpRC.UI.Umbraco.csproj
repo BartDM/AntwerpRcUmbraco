@@ -522,6 +522,7 @@
     <Content Include="Views\HomePage.cshtml" />
     <Content Include="Views\Team.cshtml" />
     <Content Include="Views\ContentPage.cshtml" />
+    <Content Include="Views\Ranking.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

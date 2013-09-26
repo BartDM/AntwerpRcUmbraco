@@ -11,6 +11,33 @@ namespace AntwerpRC.BLL
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(ScoreManager));
 
+
+        public IEnumerable<BDO.ScoreTable> GetAllScoreTables()
+        {
+            var returnValue = new List<BDO.ScoreTable>();
+            try
+            {
+                using (var context = new DAL.AntwerpRCEntities())
+                {
+                    long seasonId = GetCurrentSeasonId(context);
+                    if (seasonId >= 0)
+                    {
+                        var teams = context.Team.Where(t => !t.AuditDeleted && t.SeasonId == seasonId).ToList();
+
+                        foreach (var team in teams)
+                        {
+                            returnValue.Add(GetScoreTableForTeam(team.CategoryId));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error fetching all score tables", ex);
+            }
+            return returnValue;
+        }
+
         /// <summary>
         /// Will fetch all results and return a ScoreTable object with a list of all 
         /// teams of that category with their points, games, ...
@@ -31,8 +58,7 @@ namespace AntwerpRC.BLL
                         var table = context.ScoreTable.OrderByDescending(t => t.CreatedOn).FirstOrDefault(t => t.Team.CategoryId == categoryid && t.Team.SeasonId == seasonId);
                         if (table != null)
                         {
-                            table.ScoreTableLine = table.ScoreTableLine.OrderByDescending(t => t.TotalPoints)
-                                .ThenBy(t => t.NegativePoints - t.PositivePoints).ToList();
+                            table.ScoreTableLine = table.ScoreTableLine.OrderBy(t => t.InternalOrder).ToList();
                             var bdo = Mapper.Map<DAL.ScoreTable, BDO.ScoreTable>(table);
                             return bdo;
                         }
@@ -60,83 +86,73 @@ namespace AntwerpRC.BLL
 
                         foreach (var team in teams)
                         {
-                            var tables =
-                                context.ScoreTable.Where(
-                                    t => t.Team.CategoryId == team.CategoryId && t.Team.SeasonId == seasonId)
-                                    .GroupBy(g => new { y = g.CreatedOn.Year, m = g.CreatedOn.Month, d = g.CreatedOn.Day })
-                                    .OrderByDescending(g => g.Key)
-                                    .Take(2);
-                            var teamTables = new List<DAL.ScoreTable>();
-                            
-                            foreach (var table in tables)
-                            {
-                                teamTables.Add(table.OrderByDescending(t => t.CreatedOn).FirstOrDefault());
-                            }
+                            var table =
+                                context.ScoreTable.OrderByDescending(t => t.CreatedOn)
+                                    .FirstOrDefault(
+                                        t => t.Team.CategoryId == team.CategoryId && t.Team.SeasonId == seasonId);
 
-                            var bdo = new BDO.ScoreTableOverview()
+                            if (table != null)
                             {
-                                Team = Mapper.Map<DAL.Team, BDO.Team>(team),
-                            };
-                            //Find home team
-                            var lines = teamTables.First().ScoreTableLine.OrderByDescending(l => l.TotalPoints).ThenBy(l => l.NegativePoints - l.PositivePoints).ThenBy(l=>l.TeamClub.Club.ClubName).ToList();
-                            if (lines.Any())
-                            {
-                                var homeTeam = lines.FirstOrDefault(l => l.TeamClub.Club.HomeClub && !l.AuditDeleted);
-                                if (homeTeam != null)
+                                var bdo = new BDO.ScoreTableOverview()
                                 {
-                                    //Find place
-                                    bdo.Order = lines.IndexOf(homeTeam) + 1;
-                                    bdo.Points = homeTeam.TotalPoints;
-                                    if (bdo.Order > 1)
-                                    {
-                                        var teamAbove = lines[lines.IndexOf(homeTeam) - 1];
-                                        bdo.TeamAbove = string.Format("{0} ({1}{2})", teamAbove.TeamClub.Club.ClubName, teamAbove.TotalPoints - homeTeam.TotalPoints > 0 ? "+" : "", teamAbove.TotalPoints - homeTeam.TotalPoints);
-                                    }
-                                    else
-                                    {
-                                        bdo.TeamAbove = string.Empty;
-                                    }
-                                    if (bdo.Order < lines.Count)
-                                    {
-                                        var teamBelow = lines[lines.IndexOf(homeTeam) + 1];
-                                        bdo.TeamBelow = string.Format("{0} ({1}{2})", teamBelow.TeamClub.Club.ClubName,
-                                            homeTeam.TotalPoints - teamBelow.TotalPoints > 0 ? "-" : "",
-                                            homeTeam.TotalPoints - teamBelow.TotalPoints);
-                                    }
-                                    else
-                                    {
-                                        bdo.TeamBelow = string.Empty;
-                                    }
-                                }
-                            }
-                            //Find hometeam in second table to calculate evolution
-                            if (teamTables.Count() > 1)
-                            {
-                                var secondTableLines = teamTables.Skip(1).Take(1).First().ScoreTableLine.OrderByDescending(l => l.TotalPoints).ThenBy(l => l.NegativePoints - l.PositivePoints).ThenBy(l => l.TeamClub.Club.ClubName).ToList();
-                                if (secondTableLines.Any())
+                                    Team = Mapper.Map<DAL.Team, BDO.Team>(team),
+                                };
+                                int currentOrder = 0;
+
+                                var lines = table.ScoreTableLine.OrderBy(l => l.InternalOrder).ToList();
+                                //Find homeTeam
+                                if (lines.Any())
                                 {
-                                    var homeTeam = secondTableLines.FirstOrDefault(l => l.TeamClub.Club.HomeClub && !l.AuditDeleted);
+                                    var homeTeam = lines.FirstOrDefault(l => l.TeamClub.Club.HomeClub && !l.AuditDeleted);
                                     if (homeTeam != null)
                                     {
-                                        int order = secondTableLines.IndexOf(homeTeam) + 1;
-                                        if (order - bdo.Order != 0)
+                                        bdo.Order = homeTeam.Order;
+                                        currentOrder = homeTeam.Order;
+
+                                        bdo.SharedPlace = lines.Count(l => l.Order == homeTeam.Order) > 1;
+
+                                        bdo.Points = homeTeam.TotalPoints;
+                                        if (lines.IndexOf(homeTeam) > 0)
                                         {
-                                            bdo.Evolution = order - bdo.Order;
-                                            bdo.EvolutionDate = teamTables.Skip(1).Take(1).First().CreatedOn;
+                                            var teamAbove = lines[lines.IndexOf(homeTeam) - 1];
+                                            bdo.TeamAbove = string.Format("{0} ({1}{2})", teamAbove.TeamClub.Club.ClubName, teamAbove.TotalPoints - homeTeam.TotalPoints > 0 ? "+" : "", teamAbove.TotalPoints - homeTeam.TotalPoints);
                                         }
                                         else
                                         {
-                                            bdo.Evolution = 0;
+                                            bdo.TeamAbove = string.Empty;
                                         }
+                                        if (lines.IndexOf(homeTeam) < lines.Count - 1)
+                                        {
+                                            var teamBelow = lines[lines.IndexOf(homeTeam) + 1];
+                                            bdo.TeamBelow = string.Format("{0} ({1}{2})", teamBelow.TeamClub.Club.ClubName,
+                                                homeTeam.TotalPoints - teamBelow.TotalPoints > 0 ? "-" : "",
+                                                homeTeam.TotalPoints - teamBelow.TotalPoints);
+                                        }
+                                        else
+                                        {
+                                            bdo.TeamBelow = string.Empty;
+                                        }
+
                                     }
                                 }
-
+                                //Get table where order is different
+                                var oldTable = context.ScoreTable.FirstOrDefault(t => t.Team.CategoryId == team.CategoryId && t.Team.SeasonId == seasonId && t.ScoreTableLine.Any(tl => tl.TeamClub.Club.HomeClub && !tl.AuditDeleted && tl.Order != currentOrder));
+                                if (oldTable != null)
+                                {
+                                    var oldLines = oldTable.ScoreTableLine.OrderBy(l => l.InternalOrder).ToList();
+                                    var homeTeam = oldLines.FirstOrDefault(l => l.TeamClub.Club.HomeClub && !l.AuditDeleted);
+                                    if (homeTeam != null)
+                                    {
+                                        bdo.Evolution = homeTeam.Order - currentOrder;
+                                        bdo.EvolutionDate = oldTable.CreatedOn;
+                                    }
+                                }
+                                if (!bdo.EvolutionDate.HasValue)
+                                {
+                                    bdo.Evolution = 0;
+                                }
+                                scoreTables.Add(bdo);
                             }
-                            else
-                            {
-                                bdo.Evolution = 0;
-                            }
-                            scoreTables.Add(bdo);
                         }
                     }
                 }
@@ -145,11 +161,8 @@ namespace AntwerpRC.BLL
             {
                 Log.Error("Error fetching score table for overview", ex);
             }
-            scoreTables.Sort((t1, t2) => t2.Team.Category.CategoryId.CompareTo(t1.Team.Category.CategoryId));
-            return scoreTables;
+            return scoreTables.OrderBy(t => t.Order).ThenByDescending(t => t.Points).ToList();
         }
-
-
 
         /// <summary>
         /// Will fetch all latest results (2 per category) to form an overview of al teams

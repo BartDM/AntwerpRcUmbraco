@@ -33,6 +33,8 @@ namespace AntwerpRC.DAL
         public string AuditModifiedBy { get; set; }
         public Nullable<System.DateTime> AuditModifiedOn { get; set; }
         public long TeamclubId { get; set; }
+        public int Order { get; set; }
+        public int InternalOrder { get; set; }
     
         public virtual ScoreTable ScoreTable { get; set; }
         public virtual TeamClub TeamClub { get; set; }

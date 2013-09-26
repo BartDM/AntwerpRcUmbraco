@@ -3,6 +3,8 @@
 
 @{
     Layout = null;
+    var previousOrder = 0;
+
 }
 
 <div class="span6 ranking">
@@ -16,6 +18,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th></th>
                 <th>Team</th>
                 <th>P</th>
                 <th>B</th>
@@ -33,12 +36,22 @@
         <tbody>
             @foreach (var line in Model.ScoreTableLines)
             {
+                var order = line.Order.ToString();
+                if (line.Order == previousOrder)
+                {
+                    order = "--";
+                }
+                previousOrder = line.Order;
+
                 var trClass = string.Empty;
                 if (line.HomeTeam)
                 {
                     trClass = "arc";
                 }
                 <tr class="@trClass">
+                    <td>
+                        @order
+                    </td>
                     <td>@line.TeamName</td>
                     <td>@line.Points</td>
                     <td>@line.Bonus</td>
@@ -62,5 +75,5 @@ else
 {
     <p>Geen ranking beschikbaar</p>
 }                                                 
-    </div >
+    </div>
 

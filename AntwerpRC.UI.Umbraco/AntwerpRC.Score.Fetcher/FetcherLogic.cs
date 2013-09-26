@@ -1,4 +1,6 @@
-﻿namespace AntwerpRC.Score.Fetcher
+﻿using System;
+
+namespace AntwerpRC.Score.Fetcher
 {
     public class FetcherLogic
     {
@@ -15,10 +17,10 @@
             scoreFetcher.FetchGamesForSeason(seasonId,user);
         }
 
-        public void CalculateTables(long seasonId, string user)
+        public void CalculateTables(long seasonId, string user, DateTime calculationDate)
         {
             var tableCalculator = new Calculator();
-            tableCalculator.CalculateTablesForSeason(seasonId,user);
+            tableCalculator.CalculateTablesForSeason(seasonId,user,calculationDate);
         }
     }
 }

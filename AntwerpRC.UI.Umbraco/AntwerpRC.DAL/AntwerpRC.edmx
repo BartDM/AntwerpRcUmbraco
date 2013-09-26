@@ -4,19 +4,103 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AntwerpRCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AntwerpRCModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="AntwerpRCModelStoreContainer">
+          <EntitySet Name="Address" EntityType="AntwerpRCModel.Store.Address" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Calendar" EntityType="AntwerpRCModel.Store.Calendar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Category" EntityType="AntwerpRCModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CategoryCalendar" EntityType="AntwerpRCModel.Store.CategoryCalendar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Club" EntityType="AntwerpRCModel.Store.Club" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ClubAlias" EntityType="AntwerpRCModel.Store.ClubAlias" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Country" EntityType="AntwerpRCModel.Store.Country" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Division" EntityType="AntwerpRCModel.Store.Division" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Game" EntityType="AntwerpRCModel.Store.Game" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ScoreTable" EntityType="AntwerpRCModel.Store.ScoreTable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ScoreTableLine" EntityType="AntwerpRCModel.Store.ScoreTableLine" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Season" EntityType="AntwerpRCModel.Store.Season" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Team" EntityType="AntwerpRCModel.Store.Team" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TeamClub" EntityType="AntwerpRCModel.Store.TeamClub" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Address_Club" Association="AntwerpRCModel.Store.FK_Address_Club">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Country" Association="AntwerpRCModel.Store.FK_Address_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Calendar_Address" Association="AntwerpRCModel.Store.FK_Calendar_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Calendar" EntitySet="Calendar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Calendar_Game" Association="AntwerpRCModel.Store.FK_Calendar_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="Calendar" EntitySet="Calendar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryCalendar_Category" Association="AntwerpRCModel.Store.FK_CategoryCalendar_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="CategoryCalendar" EntitySet="CategoryCalendar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubAlias_Club" Association="AntwerpRCModel.Store.FK_ClubAlias_Club">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="ClubAlias" EntitySet="ClubAlias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_Address" Association="AntwerpRCModel.Store.FK_Game_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_TeamClub1" Association="AntwerpRCModel.Store.FK_Game_TeamClub1">
+            <End Role="TeamClub" EntitySet="TeamClub" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_TeamClub2" Association="AntwerpRCModel.Store.FK_Game_TeamClub2">
+            <End Role="TeamClub" EntitySet="TeamClub" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoreTable_Team" Association="AntwerpRCModel.Store.FK_ScoreTable_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="ScoreTable" EntitySet="ScoreTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoreTableLine_ScoreTable" Association="AntwerpRCModel.Store.FK_ScoreTableLine_ScoreTable">
+            <End Role="ScoreTable" EntitySet="ScoreTable" />
+            <End Role="ScoreTableLine" EntitySet="ScoreTableLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoreTableLine_TeamClub" Association="AntwerpRCModel.Store.FK_ScoreTableLine_TeamClub">
+            <End Role="TeamClub" EntitySet="TeamClub" />
+            <End Role="ScoreTableLine" EntitySet="ScoreTableLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_Category" Association="AntwerpRCModel.Store.FK_Team_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_Division" Association="AntwerpRCModel.Store.FK_Team_Division">
+            <End Role="Division" EntitySet="Division" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_Season" Association="AntwerpRCModel.Store.FK_Team_Season">
+            <End Role="Season" EntitySet="Season" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamClub_Category" Association="AntwerpRCModel.Store.FK_TeamClub_Category">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamClub" EntitySet="TeamClub" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamClub_Club" Association="AntwerpRCModel.Store.FK_TeamClub_Club">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="TeamClub" EntitySet="TeamClub" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressId" />
           </Key>
-          <Property Name="AddressId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AddressId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Street" Type="varchar(max)" />
           <Property Name="Nr" Type="varchar" MaxLength="10" />
           <Property Name="Postalcode" Type="varchar" MaxLength="10" />
           <Property Name="City" Type="varchar(max)" />
           <Property Name="CountryId" Type="bigint" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -29,7 +113,7 @@
           <Key>
             <PropertyRef Name="CalenderId" />
           </Key>
-          <Property Name="CalenderId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CalenderId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="StartDate" Type="datetime" Nullable="false" />
           <Property Name="EndDate" Type="datetime" Nullable="false" />
           <Property Name="Descripton" Type="varchar(max)" Nullable="false" />
@@ -44,7 +128,7 @@
           <Property Name="PublicEvent" Type="bit" Nullable="false" />
           <Property Name="FullDay" Type="bit" Nullable="false" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -53,12 +137,12 @@
           <Key>
             <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="CategoryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CategoryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="DefaultGameTime" Type="int" />
-          <Property Name="DefaultStartTime" Type="time" Precision="7" />
+          <Property Name="DefaultStartTime" Type="time" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="100" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -67,11 +151,11 @@
           <Key>
             <PropertyRef Name="CategoryCalenderId" />
           </Key>
-          <Property Name="CategoryCalenderId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryCalenderId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CategoryId" Type="bigint" Nullable="false" />
           <Property Name="CalenderId" Type="bigint" Nullable="false" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -80,12 +164,12 @@
           <Key>
             <PropertyRef Name="ClubId" />
           </Key>
-          <Property Name="ClubId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ClubName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ClubId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClubName" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="Colour" Type="varchar(max)" />
           <Property Name="HomeClub" Type="bit" Nullable="false" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -94,11 +178,11 @@
           <Key>
             <PropertyRef Name="ClubAliasId" />
           </Key>
-          <Property Name="ClubAliasId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClubAliasId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ClubId" Type="bigint" Nullable="false" />
-          <Property Name="Alias" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Alias" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -107,10 +191,10 @@
           <Key>
             <PropertyRef Name="CountryId" />
           </Key>
-          <Property Name="CountryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -119,10 +203,10 @@
           <Key>
             <PropertyRef Name="DivisionId" />
           </Key>
-          <Property Name="DivisionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DivisionId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -131,7 +215,7 @@
           <Key>
             <PropertyRef Name="GameId" />
           </Key>
-          <Property Name="GameId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GameId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="TeamClub1Id" Type="bigint" Nullable="false" />
           <Property Name="TeamClub1Score" Type="int" />
@@ -139,9 +223,9 @@
           <Property Name="TeamClub2Id" Type="bigint" Nullable="false" />
           <Property Name="TeamClub2Score" Type="int" />
           <Property Name="TeamClub2Tries" Type="int" />
-          <Property Name="GameNumber" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="GameNumber" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -151,11 +235,11 @@
           <Key>
             <PropertyRef Name="TableId" />
           </Key>
-          <Property Name="TableId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CreatedOn" Type="datetime" Nullable="false" />
           <Property Name="SelfCalculated" Type="bit" Nullable="false" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -165,7 +249,7 @@
           <Key>
             <PropertyRef Name="TableLineId" />
           </Key>
-          <Property Name="TableLineId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableLineId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TableId" Type="bigint" Nullable="false" />
           <Property Name="Points" Type="int" Nullable="false" />
           <Property Name="Bonus" Type="int" Nullable="false" />
@@ -179,22 +263,24 @@
           <Property Name="NegativePoints" Type="int" Nullable="false" />
           <Property Name="RedCards" Type="int" Nullable="false" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
           <Property Name="TeamclubId" Type="bigint" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="InternalOrder" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Season">
           <Key>
             <PropertyRef Name="SeasonId" />
           </Key>
-          <Property Name="SeasonId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="SeasonId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="StartDate" Type="datetime" />
           <Property Name="EndDate" Type="datetime" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="100" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -204,12 +290,12 @@
           <Key>
             <PropertyRef Name="TeamId" />
           </Key>
-          <Property Name="TeamId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeamId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CategoryId" Type="bigint" Nullable="false" />
           <Property Name="SeasonId" Type="bigint" Nullable="false" />
           <Property Name="DivisionId" Type="bigint" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
@@ -219,19 +305,19 @@
           <Key>
             <PropertyRef Name="TeamClubId" />
           </Key>
-          <Property Name="TeamClubId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeamClubId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TeamId" Type="bigint" Nullable="false" />
           <Property Name="ClubId" Type="bigint" Nullable="false" />
           <Property Name="AuditDeleted" Type="bit" Nullable="false" />
-          <Property Name="AuditCreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="AuditCreatedOn" Type="datetime" Nullable="false" />
           <Property Name="AuditModifiedBy" Type="varchar" MaxLength="255" />
           <Property Name="AuditModifiedOn" Type="datetime" />
           <Property Name="TeamName" Type="varchar" MaxLength="255" />
         </EntityType>
         <Association Name="FK_Address_Club">
-          <End Role="Club" Type="Self.Club" Multiplicity="1" />
-          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <End Role="Club" Type="AntwerpRCModel.Store.Club" Multiplicity="1" />
+          <End Role="Address" Type="AntwerpRCModel.Store.Address" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Club">
               <PropertyRef Name="ClubId" />
@@ -242,8 +328,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Address_Country">
-          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
-          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <End Role="Country" Type="AntwerpRCModel.Store.Country" Multiplicity="0..1" />
+          <End Role="Address" Type="AntwerpRCModel.Store.Address" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Country">
               <PropertyRef Name="CountryId" />
@@ -254,8 +340,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Calendar_Address">
-          <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
-          <End Role="Calendar" Type="Self.Calendar" Multiplicity="*" />
+          <End Role="Address" Type="AntwerpRCModel.Store.Address" Multiplicity="0..1" />
+          <End Role="Calendar" Type="AntwerpRCModel.Store.Calendar" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Address">
               <PropertyRef Name="AddressId" />
@@ -266,8 +352,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Calendar_Game">
-          <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
-          <End Role="Calendar" Type="Self.Calendar" Multiplicity="*" />
+          <End Role="Game" Type="AntwerpRCModel.Store.Game" Multiplicity="0..1" />
+          <End Role="Calendar" Type="AntwerpRCModel.Store.Calendar" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Game">
               <PropertyRef Name="GameId" />
@@ -278,8 +364,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CategoryCalendar_Category">
-          <End Role="Category" Type="Self.Category" Multiplicity="1" />
-          <End Role="CategoryCalendar" Type="Self.CategoryCalendar" Multiplicity="*" />
+          <End Role="Category" Type="AntwerpRCModel.Store.Category" Multiplicity="1" />
+          <End Role="CategoryCalendar" Type="AntwerpRCModel.Store.CategoryCalendar" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="CategoryId" />
@@ -290,8 +376,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ClubAlias_Club">
-          <End Role="Club" Type="Self.Club" Multiplicity="1" />
-          <End Role="ClubAlias" Type="Self.ClubAlias" Multiplicity="*" />
+          <End Role="Club" Type="AntwerpRCModel.Store.Club" Multiplicity="1" />
+          <End Role="ClubAlias" Type="AntwerpRCModel.Store.ClubAlias" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Club">
               <PropertyRef Name="ClubId" />
@@ -302,8 +388,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Game_Address">
-          <End Role="Address" Type="Self.Address" Multiplicity="1" />
-          <End Role="Game" Type="Self.Game" Multiplicity="*" />
+          <End Role="Address" Type="AntwerpRCModel.Store.Address" Multiplicity="1" />
+          <End Role="Game" Type="AntwerpRCModel.Store.Game" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Address">
               <PropertyRef Name="AddressId" />
@@ -314,8 +400,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Game_TeamClub1">
-          <End Role="TeamClub" Type="Self.TeamClub" Multiplicity="1" />
-          <End Role="Game" Type="Self.Game" Multiplicity="*" />
+          <End Role="TeamClub" Type="AntwerpRCModel.Store.TeamClub" Multiplicity="1" />
+          <End Role="Game" Type="AntwerpRCModel.Store.Game" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TeamClub">
               <PropertyRef Name="TeamClubId" />
@@ -326,8 +412,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Game_TeamClub2">
-          <End Role="TeamClub" Type="Self.TeamClub" Multiplicity="1" />
-          <End Role="Game" Type="Self.Game" Multiplicity="*" />
+          <End Role="TeamClub" Type="AntwerpRCModel.Store.TeamClub" Multiplicity="1" />
+          <End Role="Game" Type="AntwerpRCModel.Store.Game" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TeamClub">
               <PropertyRef Name="TeamClubId" />
@@ -338,8 +424,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ScoreTable_Team">
-          <End Role="Team" Type="Self.Team" Multiplicity="1" />
-          <End Role="ScoreTable" Type="Self.ScoreTable" Multiplicity="*" />
+          <End Role="Team" Type="AntwerpRCModel.Store.Team" Multiplicity="1" />
+          <End Role="ScoreTable" Type="AntwerpRCModel.Store.ScoreTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Team">
               <PropertyRef Name="TeamId" />
@@ -350,8 +436,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ScoreTableLine_ScoreTable">
-          <End Role="ScoreTable" Type="Self.ScoreTable" Multiplicity="1" />
-          <End Role="ScoreTableLine" Type="Self.ScoreTableLine" Multiplicity="*" />
+          <End Role="ScoreTable" Type="AntwerpRCModel.Store.ScoreTable" Multiplicity="1" />
+          <End Role="ScoreTableLine" Type="AntwerpRCModel.Store.ScoreTableLine" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ScoreTable">
               <PropertyRef Name="TableId" />
@@ -362,8 +448,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ScoreTableLine_TeamClub">
-          <End Role="TeamClub" Type="Self.TeamClub" Multiplicity="1" />
-          <End Role="ScoreTableLine" Type="Self.ScoreTableLine" Multiplicity="*" />
+          <End Role="TeamClub" Type="AntwerpRCModel.Store.TeamClub" Multiplicity="1" />
+          <End Role="ScoreTableLine" Type="AntwerpRCModel.Store.ScoreTableLine" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TeamClub">
               <PropertyRef Name="TeamClubId" />
@@ -374,8 +460,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Team_Category">
-          <End Role="Category" Type="Self.Category" Multiplicity="1" />
-          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <End Role="Category" Type="AntwerpRCModel.Store.Category" Multiplicity="1" />
+          <End Role="Team" Type="AntwerpRCModel.Store.Team" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="CategoryId" />
@@ -386,8 +472,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Team_Division">
-          <End Role="Division" Type="Self.Division" Multiplicity="0..1" />
-          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <End Role="Division" Type="AntwerpRCModel.Store.Division" Multiplicity="0..1" />
+          <End Role="Team" Type="AntwerpRCModel.Store.Team" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Division">
               <PropertyRef Name="DivisionId" />
@@ -398,8 +484,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Team_Season">
-          <End Role="Season" Type="Self.Season" Multiplicity="1" />
-          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <End Role="Season" Type="AntwerpRCModel.Store.Season" Multiplicity="1" />
+          <End Role="Team" Type="AntwerpRCModel.Store.Team" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Season">
               <PropertyRef Name="SeasonId" />
@@ -410,8 +496,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TeamClub_Category">
-          <End Role="Team" Type="Self.Team" Multiplicity="1" />
-          <End Role="TeamClub" Type="Self.TeamClub" Multiplicity="*" />
+          <End Role="Team" Type="AntwerpRCModel.Store.Team" Multiplicity="1" />
+          <End Role="TeamClub" Type="AntwerpRCModel.Store.TeamClub" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Team">
               <PropertyRef Name="TeamId" />
@@ -422,8 +508,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TeamClub_Club">
-          <End Role="Club" Type="Self.Club" Multiplicity="1" />
-          <End Role="TeamClub" Type="Self.TeamClub" Multiplicity="*" />
+          <End Role="Club" Type="AntwerpRCModel.Store.Club" Multiplicity="1" />
+          <End Role="TeamClub" Type="AntwerpRCModel.Store.TeamClub" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Club">
               <PropertyRef Name="ClubId" />
@@ -433,90 +519,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AntwerpRCModelStoreContainer">
-          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Calendar" EntityType="Self.Calendar" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="CategoryCalendar" EntityType="Self.CategoryCalendar" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Club" EntityType="Self.Club" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="ClubAlias" EntityType="Self.ClubAlias" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="ScoreTable" EntityType="Self.ScoreTable" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="ScoreTableLine" EntityType="Self.ScoreTableLine" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Season" EntityType="Self.Season" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="TeamClub" EntityType="Self.TeamClub" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <AssociationSet Name="FK_Address_Club" Association="Self.FK_Address_Club">
-            <End Role="Club" EntitySet="Club" />
-            <End Role="Address" EntitySet="Address" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Address_Country" Association="Self.FK_Address_Country">
-            <End Role="Country" EntitySet="Country" />
-            <End Role="Address" EntitySet="Address" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Calendar_Address" Association="Self.FK_Calendar_Address">
-            <End Role="Address" EntitySet="Address" />
-            <End Role="Calendar" EntitySet="Calendar" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Calendar_Game" Association="Self.FK_Calendar_Game">
-            <End Role="Game" EntitySet="Game" />
-            <End Role="Calendar" EntitySet="Calendar" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CategoryCalendar_Category" Association="Self.FK_CategoryCalendar_Category">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="CategoryCalendar" EntitySet="CategoryCalendar" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClubAlias_Club" Association="Self.FK_ClubAlias_Club">
-            <End Role="Club" EntitySet="Club" />
-            <End Role="ClubAlias" EntitySet="ClubAlias" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Game_Address" Association="Self.FK_Game_Address">
-            <End Role="Address" EntitySet="Address" />
-            <End Role="Game" EntitySet="Game" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Game_TeamClub1" Association="Self.FK_Game_TeamClub1">
-            <End Role="TeamClub" EntitySet="TeamClub" />
-            <End Role="Game" EntitySet="Game" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Game_TeamClub2" Association="Self.FK_Game_TeamClub2">
-            <End Role="TeamClub" EntitySet="TeamClub" />
-            <End Role="Game" EntitySet="Game" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ScoreTable_Team" Association="Self.FK_ScoreTable_Team">
-            <End Role="Team" EntitySet="Team" />
-            <End Role="ScoreTable" EntitySet="ScoreTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ScoreTableLine_ScoreTable" Association="Self.FK_ScoreTableLine_ScoreTable">
-            <End Role="ScoreTable" EntitySet="ScoreTable" />
-            <End Role="ScoreTableLine" EntitySet="ScoreTableLine" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ScoreTableLine_TeamClub" Association="Self.FK_ScoreTableLine_TeamClub">
-            <End Role="TeamClub" EntitySet="TeamClub" />
-            <End Role="ScoreTableLine" EntitySet="ScoreTableLine" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Team_Category" Association="Self.FK_Team_Category">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Team" EntitySet="Team" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Team_Division" Association="Self.FK_Team_Division">
-            <End Role="Division" EntitySet="Division" />
-            <End Role="Team" EntitySet="Team" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Team_Season" Association="Self.FK_Team_Season">
-            <End Role="Season" EntitySet="Season" />
-            <End Role="Team" EntitySet="Team" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TeamClub_Category" Association="Self.FK_TeamClub_Category">
-            <End Role="Team" EntitySet="Team" />
-            <End Role="TeamClub" EntitySet="TeamClub" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TeamClub_Club" Association="Self.FK_TeamClub_Club">
-            <End Role="Club" EntitySet="Club" />
-            <End Role="TeamClub" EntitySet="TeamClub" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -975,11 +977,11 @@
             <End Role="TeamClub" EntitySet="TeamClub" />
           </AssociationSet>
           <EntitySet Name="ScoreTable" EntityType="AntwerpRCModel.ScoreTable" />
-          <EntitySet Name="ScoreTableLine" EntityType="AntwerpRCModel.ScoreTableLine" />
           <AssociationSet Name="FK_ScoreTable_Team" Association="AntwerpRCModel.FK_ScoreTable_Team">
             <End Role="Team" EntitySet="Team" />
             <End Role="ScoreTable" EntitySet="ScoreTable" />
           </AssociationSet>
+          <EntitySet Name="ScoreTableLine" EntityType="AntwerpRCModel.ScoreTableLine" />
           <AssociationSet Name="FK_ScoreTableLine_ScoreTable" Association="AntwerpRCModel.FK_ScoreTableLine_ScoreTable">
             <End Role="ScoreTable" EntitySet="ScoreTable" />
             <End Role="ScoreTableLine" EntitySet="ScoreTableLine" />
@@ -1005,6 +1007,18 @@
           <NavigationProperty Name="Team" Relationship="AntwerpRCModel.FK_ScoreTable_Team" FromRole="ScoreTable" ToRole="Team" />
           <NavigationProperty Name="ScoreTableLine" Relationship="AntwerpRCModel.FK_ScoreTableLine_ScoreTable" FromRole="ScoreTable" ToRole="ScoreTableLine" />
         </EntityType>
+        <Association Name="FK_ScoreTable_Team">
+          <End Type="AntwerpRCModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="AntwerpRCModel.ScoreTable" Role="ScoreTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="TeamId" />
+            </Principal>
+            <Dependent Role="ScoreTable">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="ScoreTableLine">
           <Key>
             <PropertyRef Name="TableLineId" />
@@ -1028,21 +1042,11 @@
           <Property Type="String" Name="AuditModifiedBy" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="AuditModifiedOn" Precision="3" />
           <Property Type="Int64" Name="TeamclubId" Nullable="false" />
+          <Property Type="Int32" Name="Order" Nullable="false" />
           <NavigationProperty Name="ScoreTable" Relationship="AntwerpRCModel.FK_ScoreTableLine_ScoreTable" FromRole="ScoreTableLine" ToRole="ScoreTable" />
           <NavigationProperty Name="TeamClub" Relationship="AntwerpRCModel.FK_ScoreTableLine_TeamClub" FromRole="ScoreTableLine" ToRole="TeamClub" />
+          <Property Type="Int32" Name="InternalOrder" Nullable="false" />
         </EntityType>
-        <Association Name="FK_ScoreTable_Team">
-          <End Type="AntwerpRCModel.Team" Role="Team" Multiplicity="1" />
-          <End Type="AntwerpRCModel.ScoreTable" Role="ScoreTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Team">
-              <PropertyRef Name="TeamId" />
-            </Principal>
-            <Dependent Role="ScoreTable">
-              <PropertyRef Name="TeamId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ScoreTableLine_ScoreTable">
           <End Type="AntwerpRCModel.ScoreTable" Role="ScoreTable" Multiplicity="1" />
           <End Type="AntwerpRCModel.ScoreTableLine" Role="ScoreTableLine" Multiplicity="*" />
@@ -1289,6 +1293,8 @@
           <EntitySetMapping Name="ScoreTableLine">
             <EntityTypeMapping TypeName="AntwerpRCModel.ScoreTableLine">
               <MappingFragment StoreEntitySet="ScoreTableLine">
+                <ScalarProperty Name="InternalOrder" ColumnName="InternalOrder" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
                 <ScalarProperty Name="TeamclubId" ColumnName="TeamclubId" />
                 <ScalarProperty Name="AuditModifiedOn" ColumnName="AuditModifiedOn" />
                 <ScalarProperty Name="AuditModifiedBy" ColumnName="AuditModifiedBy" />

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<AntwerpRC.BDO.ScoreTable>
+@{
+    Layout = null;
+    var previousOrder = 0;
+
+}
+
+<ul>
+@foreach (var item in Model)
+{
+    <li><a href="#@item.Team.Category.Description">@item.Team.Category.Description - @item.Team.Division.Description</a></li>
+}
+</ul>
+
+@foreach (var item in Model)
+{
+    <div class="row-fluid">
+        <div class="span12 ranking">
+            @if (Model != null)
+            {
+                <h4>
+                    <a name="@item.Team.Category.Description"></a>
+                    @item.Team.Category.Description - @item.Team.Division.Description
+                </h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Team</th>
+                            <th>Punten</th>
+                            <th>Bonus</th>
+                            <th>Totaal</th>
+                            <th>Wedstrijd</th>
+                            <th>Win</th>
+                            <th>Gelijk</th>
+                            <th>Verlies</th>
+                            <th>Forfait</th>
+                            <th>+</th>
+                            <th>-</th>
+                            <th>Rood</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var line in item.ScoreTableLines)
+                        {
+                            var order = line.Order.ToString();
+                            if (line.Order == previousOrder)
+                            {
+                                order = "--";
+                            }
+                            previousOrder = line.Order;
+
+                            var trClass = string.Empty;
+                            if (line.HomeTeam)
+                            {
+                                trClass = "arc";
+                            }
+                            <tr class="@trClass">
+                                <td>
+                                    @order
+                                </td>
+                                <td>@line.TeamName</td>
+                                <td>@line.Points</td>
+                                <td>@line.Bonus</td>
+                                <td>@line.TotalPoints</td>
+                                <td>@line.Games</td>
+                                <td>@line.Won</td>
+                                <td>@line.Draw</td>
+                                <td>@line.Lost</td>
+                                <td>@line.Forfait</td>
+                                <td>@line.PositivePoints</td>
+                                <td>@line.NegativePoints</td>
+                                <td>@line.RedCards</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Geen ranking beschikbaar</p>
+            }
+        </div>
+    </div>
+}

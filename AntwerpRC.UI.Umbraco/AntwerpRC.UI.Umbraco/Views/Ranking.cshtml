@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "PageBase.cshtml";
+}
+@section head
+{
+
+}
+@section scripts
+{
+
+}
+<div class="row-fluid">
+    <div class="span12">
+        <div class="headline">
+            <h3>Klassement</h3>
+
+        </div>
+
+        @{ Html.RenderAction("GetAllScoreTables", "Score"); }
+    </div>
+</div>

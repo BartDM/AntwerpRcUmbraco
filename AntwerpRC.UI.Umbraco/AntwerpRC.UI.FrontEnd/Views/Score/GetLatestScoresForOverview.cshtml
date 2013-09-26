@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<AntwerpRC.BDO.GameResult>
-
 <div class="span6 results">
     <div class="headline">
         <h3>Laatste resultaten competitie</h3>
@@ -8,9 +7,9 @@
         <thead>
             <tr>
                 <th>Datum</th>
-                <th>Team</th>
+                <th>category</th>
                 <th colspan="2"></th>
-                <th colspan="2">Score</th>
+                <th colspan="2">score</th>
                 <th colspan="2">tries</th>
                 <th>bonus</th>
             </tr>
@@ -43,17 +42,26 @@
                     {
                         tdClassTeam2 += " arc";
                     }
-                    <tr>
-                        <td>@item.Date.ToString("dd-MM-yyyy")</td>
-                        <td>@item.Team.Category.Description</td>
-                        <td class="@tdClassTeam1">@item.Team1Name</td>
-                        <td class="@tdClassTeam2">@item.Team2Name</td>
-                        <td class="@tdClassScore1">@item.Team1Score</td>
-                        <td class="@tdClassScore2">@item.Team2Score</td>
-                        <td>@item.Team1Tries</td>
-                        <td>@item.Team2Tries</td>
-                        <td>@item.Bonus</td>
-                    </tr>
+                <tr>
+                    <td>@item.Date.ToString("dd-MM-yyyy")</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.TeamUrl))
+                        {
+                            <a href="@item.TeamUrl">@item.Team.Category.Description</a>
+                        }
+                        else
+                        {
+                            @item.Team.Category.Description
+                        }
+                    </td>
+                    <td class="@tdClassTeam1">@item.Team1Name</td>
+                    <td class="@tdClassTeam2">@item.Team2Name</td>
+                    <td class="@tdClassScore1">@item.Team1Score</td>
+                    <td class="@tdClassScore2">@item.Team2Score</td>
+                    <td>@item.Team1Tries</td>
+                    <td>@item.Team2Tries</td>
+                    <td>@item.Bonus</td>
+                </tr>
                 }
             }
             else

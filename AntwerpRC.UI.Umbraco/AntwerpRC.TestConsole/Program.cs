@@ -14,7 +14,7 @@ namespace AntwerpRC.TestConsole
             var logic = new FetcherLogic();
 //            logic.FetchTeamsForSeason(0,"Bart");
 //            logic.FetchGamesForSeason(0,"Bart");
-            logic.CalculateTables(0,"Bart");
+            logic.CalculateTables(0,"Bart",new DateTime(2013,9,23));
         }
     }
 }

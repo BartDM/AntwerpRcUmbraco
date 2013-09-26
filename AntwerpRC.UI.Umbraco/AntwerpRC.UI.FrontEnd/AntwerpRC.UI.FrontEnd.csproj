@@ -320,6 +320,7 @@
     <Content Include="Views\Score\GetLatestScoresForTeam.cshtml" />
     <Content Include="Views\Score\GetLatestScoresForOverview.cshtml" />
     <Content Include="Views\Score\GetScoreForOverview.cshtml" />
+    <Content Include="Views\Score\GetAllScoreTables.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,6 +9,7 @@ namespace AntwerpRC.BDO
     public class GameResult
     {
         public Team Team { get; set; }
+        public string TeamUrl { get; set; }
         public DateTime Date { get; set; }
         public string Team1Name { get; set; }
         public string Team2Name { get; set; }
